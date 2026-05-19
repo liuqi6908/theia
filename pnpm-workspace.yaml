@@ -1,9 +1,13 @@
 packages:
   - 'electron'
   - 'extensions/*'
+
 shamefullyHoist: true
+
 overrides:
   '@vscode/ripgrep': '1.17.1'
+  zod: '3.25.76'
+
 allowBuilds:
   '@parcel/watcher': true
   '@theia/ffmpeg': true
