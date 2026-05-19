@@ -1104,8 +1104,14 @@ packages:
   '@types/express-serve-static-core@4.19.8':
     resolution: {integrity: sha512-02S5fmqeoKzVZCHPZid4b8JH2eM5HzQLZWN2FohQEy/0eXTq8VXZfSN6Pcr3F6N9R/vNrj7cpgbhjie6m/1tCA==}
 
+  '@types/express-serve-static-core@5.1.1':
+    resolution: {integrity: sha512-v4zIMr/cX7/d2BpAEX3KNKL/JrT1s43s96lLvvdTmza1oEvDudCqK9aF/djc/SWgy8Yh0h30TZx5VpzqFCxk5A==}
+
   '@types/express@4.17.25':
     resolution: {integrity: sha512-dVd04UKsfpINUnK0yBoYHDF3xu7xVH4BuDotC/xGuycx4CgbP48X/KF/586bcObxT0HENHXEU8Nqtu6NR+eKhw==}
+
+  '@types/express@5.0.6':
+    resolution: {integrity: sha512-sKYVuV7Sv9fbPIt/442koC7+IIwK5olP1KWeD88e/idgoJqDm3JV/YUiPwkoKK92ylff2MGxSz1CSjsXelx0YA==}
 
   '@types/fs-extra@4.0.15':
     resolution: {integrity: sha512-zU/EU2kZ1tv+p4pswQLntA7dFQq84wXrSCfmLjZvMbLjf4N46cPOWHg+WKfc27YnEOQ0chVFlBui55HRsvzHPA==}
@@ -1204,6 +1210,9 @@ packages:
 
   '@types/serve-static@1.15.10':
     resolution: {integrity: sha512-tRs1dB+g8Itk72rlSI2ZrW6vZg0YrLI81iQSTkMmOqnqCaNr/8Ek4VwWcN5vZgCYWbg/JJSGBlUaYGAOP73qBw==}
+
+  '@types/serve-static@2.2.0':
+    resolution: {integrity: sha512-8mam4H1NHLtu7nmtalF7eyBH14QyOASmcxHhSfEoRyr0nP/YdoesEtU+uSRvMe96TW/HPTtkoKqQLl53N7UXMQ==}
 
   '@types/tar-fs@1.16.3':
     resolution: {integrity: sha512-Y+fdeg11tb9J3UNIatNtrTPM1i8U+WLv2mMhZ3W13mtU19stCgrXJ4iXLkTpoF8jqHi3T/qTS8+fQ3IPzXxpuA==}
@@ -2297,8 +2306,8 @@ packages:
   dompurify@3.2.7:
     resolution: {integrity: sha512-WhL/YuveyGXJaerVlMYGWhvQswa7myDG17P7Vu65EWC05o8vfeNbvNf4d/BOvH99+ZW+LlQsc1GDKMa1vNK6dw==}
 
-  dompurify@3.4.4:
-    resolution: {integrity: sha512-r8K7KGKEcztXfA/nfabSYB2hg9tDphORJTdf8xprN/luSLGmNhOBN8dm1/SYjqLLet6YUFEXOcrdTuwryp/Bew==}
+  dompurify@3.4.5:
+    resolution: {integrity: sha512-OrwIBKsdNSVEeubdJ1HBv/wNENRM9ytAVCv7YXt//A3vPdVMNuACRqK9mXCGCBW2ln7BT/A4X0jXHo2Gu89miA==}
 
   dot-prop@3.0.0:
     resolution: {integrity: sha512-k4ELWeEU3uCcwub7+dWydqQBRjAjkV9L33HjVRG5Xo2QybI6ja/v+4W73SRi8ubCqJz0l9XsTP1NbewfyqaSlw==}
@@ -2331,8 +2340,8 @@ packages:
   electron-store@8.2.0:
     resolution: {integrity: sha512-ukLL5Bevdil6oieAOXz3CMy+OgaItMiVBg701MNlG6W5RaC0AHN7rvlqTCmeb6O7jP0Qa1KKYTE0xV0xbhF4Hw==}
 
-  electron-to-chromium@1.5.357:
-    resolution: {integrity: sha512-NHlTIQDK8fmVwHwuIzmXYEJ1Ewq3D9wDNc0cWXxDGysP6Pb21giwGNkxiTifyKy/4SoPuN5l6GLP1W9Sv7zB2g==}
+  electron-to-chromium@1.5.358:
+    resolution: {integrity: sha512-EO7tKm3QxRqTs1lSuPXzl6yRAwznehp0AH9OoMOIC+4mQzTFday8FJCO5KU6J/TFSQXEOahNq4vTKpz1jmCVOA==}
 
   electron@39.8.7:
     resolution: {integrity: sha512-B3TmzbUEeIvrhJ0QcoFp8/tgnVA3vsm0wkdYWzC22hsk9zTVqkzyrrz40cjd0nMTTIrGWxxfDO2tdQTCMe9Bjw==}
@@ -2876,6 +2885,11 @@ packages:
     resolution: {integrity: sha512-o0Je4NvQObAuZPHLFoRSkdG2lTgtcynqymzg2Vupdx6PorhaT5MCbIyXG6d4D94kk8ZG57QeosgdiqfJWhEhlQ==}
     engines: {node: '>=10.19.0'}
 
+  graceful-fs@1.1.14:
+    resolution: {integrity: sha512-JUrvoFoQbLZpOZilKTXZX2e1EV0DTnuG5vsRFNFv4mPf/mnYbwNAFw/5x0rxeyaJslIdObGSgTTsMnM/acRaVw==}
+    engines: {node: '>=0.4.0'}
+    deprecated: please upgrade to graceful-fs 4 for compatibility with current and future versions of Node.js
+
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
@@ -2989,6 +3003,10 @@ packages:
 
   iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
+    engines: {node: '>=0.10.0'}
+
+  iconv-lite@0.6.2:
+    resolution: {integrity: sha512-2y91h5OpQlolefMPmUlivelittSWy0rP+oYVpn6A7GwVHNE8AWzoYOBNmlwks3LobaJxgHCYZAnyNo2GgpNRNQ==}
     engines: {node: '>=0.10.0'}
 
   iconv-lite@0.6.3:
@@ -3915,6 +3933,10 @@ packages:
     resolution: {integrity: sha512-sFSFmsGcVho1dNzsPGyiL1xs4KxZlM2QlznVxCDg0loLefThSsVkZPyBZEehQSci0nLwkgPZziJYpMGa59Vzqw==}
     engines: {node: '>=4'}
 
+  p-limit@2.0.0:
+    resolution: {integrity: sha512-fl5s52lI5ahKCernzzIyAP0QAZbGIovtVHGwpcu1Jr/EpzLVDI2myISHwGqK7m8uQFugVWSrbxH7XnhGtvEc+A==}
+    engines: {node: '>=6'}
+
   p-limit@2.2.0:
     resolution: {integrity: sha512-pZbTJpoUsCzV48Mc9Nh51VbwO0X9cuPFE8gYwx9BTCt9SF8/b7Zljd2fVgOxhIF/HDTKgpVzs+GPhyKfjLLFRQ==}
     engines: {node: '>=6'}
@@ -4073,6 +4095,9 @@ packages:
 
   perfect-scrollbar@1.5.5:
     resolution: {integrity: sha512-dzalfutyP3e/FOpdlhVryN4AJ5XDVauVWxybSkLZmakFE2sS3y3pc4JnSprw8tGmHvkaG5Edr5T7LBTZ+WWU2g==}
+
+  perfect-scrollbar@1.5.6:
+    resolution: {integrity: sha512-rixgxw3SxyJbCaSpo1n35A/fwI1r2rdwMKOTCg/AcG+xOEyZcE8UHVjpZMFCVImzsFoCZeJTT+M/rdEIQYO2nw==}
 
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
@@ -4457,6 +4482,10 @@ packages:
   reusify@1.1.0:
     resolution: {integrity: sha512-g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
+
+  rimraf@2.0.0:
+    resolution: {integrity: sha512-ZBMvl3zW9cEVtEwA3Tqy7ALi0vL6+L8tr1asd3/b5qAZpaFdzgsB8U77itPuzF21f2QS2Ke3ChFo3ecdiMTnTg==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
 
   rimraf@2.6.1:
     resolution: {integrity: sha512-5QIcndZ8am2WyseL6lln/utl51SwRBQs/at+zi1UnhsnPyZcAID+g0PZrKdb+kJn2fo/CwgyJweR8sP36Jer5g==}
@@ -6853,7 +6882,7 @@ snapshots:
       async-mutex: 0.4.1
       body-parser: 1.20.5
       cookie: 1.1.1
-      dompurify: 3.4.4
+      dompurify: 3.4.5
       drivelist: 12.0.2
       express: 4.22.2
       fast-json-stable-stringify: 2.1.0
@@ -7610,7 +7639,7 @@ snapshots:
     dependencies:
       '@types/http-cache-semantics': 4.2.0
       '@types/keyv': 3.1.4
-      '@types/node': 25.8.0
+      '@types/node': 22.19.19
       '@types/responselike': 1.0.3
 
   '@types/chai@4.3.20': {}
@@ -7644,12 +7673,25 @@ snapshots:
       '@types/range-parser': 1.2.7
       '@types/send': 1.2.1
 
+  '@types/express-serve-static-core@5.1.1':
+    dependencies:
+      '@types/node': 25.8.0
+      '@types/qs': 6.15.1
+      '@types/range-parser': 1.2.7
+      '@types/send': 1.2.1
+
   '@types/express@4.17.25':
     dependencies:
       '@types/body-parser': 1.19.6
       '@types/express-serve-static-core': 4.19.8
       '@types/qs': 6.15.1
       '@types/serve-static': 1.15.10
+
+  '@types/express@5.0.6':
+    dependencies:
+      '@types/body-parser': 1.19.6
+      '@types/express-serve-static-core': 5.1.1
+      '@types/serve-static': 2.2.0
 
   '@types/fs-extra@4.0.15':
     dependencies:
@@ -7665,7 +7707,7 @@ snapshots:
 
   '@types/keyv@3.1.4':
     dependencies:
-      '@types/node': 25.8.0
+      '@types/node': 22.19.19
 
   '@types/linkify-it@5.0.0': {}
 
@@ -7698,7 +7740,7 @@ snapshots:
 
   '@types/multer@1.4.13':
     dependencies:
-      '@types/express': 4.17.25
+      '@types/express': 5.0.6
 
   '@types/node-fetch@2.6.13':
     dependencies:
@@ -7730,7 +7772,7 @@ snapshots:
 
   '@types/responselike@1.0.3':
     dependencies:
-      '@types/node': 25.8.0
+      '@types/node': 22.19.19
 
   '@types/route-parser@0.1.7': {}
 
@@ -7754,6 +7796,11 @@ snapshots:
       '@types/http-errors': 2.0.5
       '@types/node': 25.8.0
       '@types/send': 0.17.6
+
+  '@types/serve-static@2.2.0':
+    dependencies:
+      '@types/http-errors': 2.0.5
+      '@types/node': 25.8.0
 
   '@types/tar-fs@1.16.3':
     dependencies:
@@ -7783,7 +7830,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 25.8.0
+      '@types/node': 22.19.19
     optional: true
 
   '@virtuoso.dev/react-urx@0.2.13(react@18.3.1)':
@@ -8286,7 +8333,7 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.10.30
       caniuse-lite: 1.0.30001793
-      electron-to-chromium: 1.5.357
+      electron-to-chromium: 1.5.358
       node-releases: 2.0.44
       update-browserslist-db: 1.2.3(browserslist@4.28.2)
 
@@ -8472,7 +8519,7 @@ snapshots:
 
   cliui@8.0.1:
     dependencies:
-      string-width: 4.2.0
+      string-width: 4.2.3
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
 
@@ -8946,7 +8993,7 @@ snapshots:
     optionalDependencies:
       '@types/trusted-types': 2.0.7
 
-  dompurify@3.4.4:
+  dompurify@3.4.5:
     optionalDependencies:
       '@types/trusted-types': 2.0.7
 
@@ -8988,7 +9035,7 @@ snapshots:
       conf: 10.2.0
       type-fest: 2.17.0
 
-  electron-to-chromium@1.5.357: {}
+  electron-to-chromium@1.5.358: {}
 
   electron@39.8.7:
     dependencies:
@@ -9465,7 +9512,7 @@ snapshots:
       graceful-fs: 4.2.11
       inherits: 2.0.4
       mkdirp: 0.5.6
-      rimraf: 2.6.1
+      rimraf: 2.0.0
 
   function-bind@1.1.2: {}
 
@@ -9685,6 +9732,9 @@ snapshots:
       p-cancelable: 2.1.1
       responselike: 2.0.1
 
+  graceful-fs@1.1.14:
+    optional: true
+
   graceful-fs@4.2.11: {}
 
   graceful-readlink@1.0.1: {}
@@ -9741,7 +9791,7 @@ snapshots:
   http-proxy-agent@4.0.1:
     dependencies:
       '@tootallnate/once': 1.1.2
-      agent-base: 6.0.0
+      agent-base: 6.0.2
       debug: 4.4.3(supports-color@8.1.1)
     transitivePeerDependencies:
       - supports-color
@@ -9828,6 +9878,10 @@ snapshots:
   iconv-lite@0.4.17: {}
 
   iconv-lite@0.4.24:
+    dependencies:
+      safer-buffer: 2.1.2
+
+  iconv-lite@0.6.2:
     dependencies:
       safer-buffer: 2.1.2
 
@@ -10727,6 +10781,10 @@ snapshots:
 
   p-limit@1.1.0: {}
 
+  p-limit@2.0.0:
+    dependencies:
+      p-try: 2.2.0
+
   p-limit@2.2.0:
     dependencies:
       p-try: 2.2.0
@@ -10745,7 +10803,7 @@ snapshots:
 
   p-locate@3.0.0:
     dependencies:
-      p-limit: 2.2.0
+      p-limit: 2.0.0
 
   p-locate@4.1.0:
     dependencies:
@@ -10775,7 +10833,7 @@ snapshots:
       debug: 4.4.3(supports-color@8.1.1)
       get-uri: 6.0.1
       http-proxy-agent: 7.0.1
-      https-proxy-agent: 7.0.2
+      https-proxy-agent: 7.0.3
       pac-resolver: 7.0.0
       socks-proxy-agent: 8.0.2
     transitivePeerDependencies:
@@ -10885,6 +10943,8 @@ snapshots:
   pend@1.2.0: {}
 
   perfect-scrollbar@1.5.5: {}
+
+  perfect-scrollbar@1.5.6: {}
 
   picocolors@1.1.1: {}
 
@@ -11115,7 +11175,7 @@ snapshots:
 
   react-perfect-scrollbar@1.5.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      perfect-scrollbar: 1.5.5
+      perfect-scrollbar: 1.5.6
       prop-types: 15.8.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -11319,6 +11379,10 @@ snapshots:
       signal-exit: 3.0.7
 
   reusify@1.1.0: {}
+
+  rimraf@2.0.0:
+    optionalDependencies:
+      graceful-fs: 1.1.14
 
   rimraf@2.6.1:
     dependencies:
@@ -11627,7 +11691,7 @@ snapshots:
 
   socks-proxy-agent@5.0.0:
     dependencies:
-      agent-base: 6.0.0
+      agent-base: 6.0.2
       debug: 4.4.3(supports-color@8.1.1)
       socks: 2.8.9
     transitivePeerDependencies:
@@ -11657,7 +11721,7 @@ snapshots:
   source-map-loader@2.0.2(webpack@5.106.2):
     dependencies:
       abab: 2.0.6
-      iconv-lite: 0.6.3
+      iconv-lite: 0.6.2
       source-map-js: 0.6.2
       webpack: 5.106.2(postcss@8.5.14)(webpack-cli@4.7.0)
 
@@ -11727,7 +11791,7 @@ snapshots:
     dependencies:
       code-point-at: 1.1.0
       is-fullwidth-code-point: 1.0.0
-      strip-ansi: 3.0.0
+      strip-ansi: 3.0.1
 
   string-width@2.0.0:
     dependencies:
@@ -12331,7 +12395,7 @@ snapshots:
   wrap-ansi@7.0.0:
     dependencies:
       ansi-styles: 4.3.0
-      string-width: 4.1.0
+      string-width: 4.2.0
       strip-ansi: 6.0.0
 
   wrap-ansi@8.1.0:

@@ -26,12 +26,22 @@
     "electron": "39.8.7"
   },
   "scripts": {
-    "bundle": "pnpm rebuild && theia build --mode development",
+    "bundle": "pnpm download:plugins && pnpm rebuild && theia build --mode development",
+    "download:plugins": "theia download:plugins",
     "rebuild": "theia rebuild:electron --cacheRoot ..",
-    "start": "theia start",
-    "watch": "pnpm rebuild && theia build --watch --mode development"
+    "start": "theia start --plugins=local-dir:plugins",
+    "watch": "pnpm download:plugins && pnpm rebuild && theia build --watch --mode development"
+  },
+  "theiaPluginsDir": "plugins",
+  "theiaPlugins": {
+    "ms-ceintl.vscode-language-pack-zh-hans": "https://open-vsx.org/api/MS-CEINTL/vscode-language-pack-zh-hans/1.110.0/file/MS-CEINTL.vscode-language-pack-zh-hans-1.110.0.vsix"
   },
   "theia": {
-    "target": "electron"
+    "target": "electron",
+    "frontend": {
+      "config": {
+        "defaultLocale": "zh-cn"
+      }
+    }
   }
 }

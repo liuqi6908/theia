@@ -23,3 +23,5 @@ pnpm start
 ## 安装第三方扩展
 
 应用已启用 Theia 的插件宿主、VS Code 扩展兼容层和 Open VSX 扩展市场。启动后打开左侧活动栏的 Extensions 视图，搜索需要的扩展并点击 Install 即可安装。
+
+应用内置了 Chinese (Simplified) Language Pack，并将默认界面语言设置为简体中文。构建时会通过 `pnpm --filter theia-electron download:plugins` 下载内置扩展，启动时会从 `electron/plugins` 加载。
