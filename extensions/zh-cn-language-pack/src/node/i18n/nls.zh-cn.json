@@ -1,0 +1,22 @@
+{
+  "vscode": {
+    "browserViewActions": {
+      "browser.goForwardAction": "前进"
+    },
+    "onboardingVariationA": {
+      "onboarding.personalize.theme": "颜色主题"
+    },
+    "promptFilePickers": {
+      "separator.plugins": "插件"
+    },
+    "settingsLayout": {
+      "chatAppearance": "外观"
+    },
+    "terminalNotificationHandler": {
+      "terminalNotificationSource": "终端"
+    },
+    "toggleRenderWhitespace": {
+      "renderWhitespace.selection": "选择"
+    }
+  }
+}

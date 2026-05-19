@@ -66,6 +66,9 @@ importers:
       theia-extension-hello-world:
         specifier: workspace:^
         version: link:../extensions/hello-world
+      theia-extension-zh-cn-language-pack:
+        specifier: workspace:^
+        version: link:../extensions/zh-cn-language-pack
     devDependencies:
       '@theia/cli':
         specifier: 1.71.1
@@ -75,6 +78,19 @@ importers:
         version: 39.8.7
 
   extensions/hello-world:
+    dependencies:
+      '@theia/core':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
+    devDependencies:
+      rimraf:
+        specifier: ^5.0.0
+        version: 5.0.0
+      typescript:
+        specifier: ~5.4.5
+        version: 5.4.5
+
+  extensions/zh-cn-language-pack:
     dependencies:
       '@theia/core':
         specifier: 1.71.1
