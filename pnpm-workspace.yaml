@@ -1,0 +1,18 @@
+packages:
+  - 'electron-app'
+  - 'extension'
+shamefullyHoist: true
+overrides:
+  '@vscode/ripgrep': '1.17.1'
+allowBuilds:
+  '@parcel/watcher': true
+  '@theia/ffmpeg': true
+  '@vscode/ripgrep': true
+  command-join: true
+  drivelist: true
+  electron: true
+  keytar: true
+  msgpackr-extract: true
+  native-keymap: true
+  node-pty: true
+  puppeteer: true
