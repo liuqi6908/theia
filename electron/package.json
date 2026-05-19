@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "electron-app",
+  "name": "theia-electron",
   "version": "0.0.0",
   "main": "lib/backend/electron-main.js",
   "dependencies": {
@@ -16,7 +16,7 @@
     "@theia/process": "1.71.1",
     "@theia/terminal": "1.71.1",
     "@theia/workspace": "1.71.1",
-    "extension": "workspace:^"
+    "theia-extension-hello-world": "workspace:^"
   },
   "devDependencies": {
     "@theia/cli": "1.71.1",

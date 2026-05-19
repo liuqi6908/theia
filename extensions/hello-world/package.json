@@ -1,7 +1,8 @@
 {
-  "name": "extension",
+  "name": "theia-extension-hello-world",
   "keywords": [
-    "theia-extension"
+    "theia-extension",
+    "hello-world"
   ],
   "version": "0.0.0",
   "files": [
@@ -23,7 +24,7 @@
   },
   "theiaExtensions": [
     {
-      "frontend": "lib/browser/extension-frontend-module"
+      "frontend": "lib/browser/hello-world-frontend-module"
     }
   ]
 }

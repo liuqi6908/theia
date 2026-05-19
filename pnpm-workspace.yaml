@@ -1,6 +1,6 @@
 packages:
-  - 'electron-app'
-  - 'extension'
+  - 'electron'
+  - 'extensions/*'
 shamefullyHoist: true
 overrides:
   '@vscode/ripgrep': '1.17.1'
