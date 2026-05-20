@@ -50,14 +50,12 @@
     "electron-builder": "^26.8.1"
   },
   "scripts": {
-    "plugins": "pnpm download:plugins",
+    "plugins": "theia download:plugins",
     "compile": "pnpm rebuild && theia build --mode development",
     "compile:prod": "pnpm download:plugins && pnpm rebuild && theia build",
     "dev": "concurrently -k -n watch,electron -c cyan,green \"pnpm --parallel --filter \\\"theia-extension-*\\\" --filter theia-electron watch\" \"pnpm start\"",
-    "download:plugins": "theia download:plugins",
-    "package": "pnpm clean:dist && pnpm compile:prod && electron-builder -c.mac.identity=null --publish never",
-    "package:preview": "pnpm clean:dist && pnpm compile:prod && electron-builder -c.mac.identity=null --dir",
-    "clean:dist": "rimraf dist",
+    "package": "rimraf dist && pnpm compile:prod && electron-builder -c.mac.identity=null --publish never",
+    "package:preview": "rimraf dist && pnpm compile:prod && electron-builder -c.mac.identity=null --dir",
     "rebuild": "theia rebuild:electron --cacheRoot ..",
     "start": "theia start --plugins=local-dir:plugins",
     "watch": "theia build --watch --mode development"
