@@ -15,6 +15,7 @@ allowBuilds:
   command-join: true
   drivelist: true
   electron: true
+  electron-winstaller: true
   keytar: true
   msgpackr-extract: true
   native-keymap: true

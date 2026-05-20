@@ -1,16 +1,17 @@
 {
   "private": true,
   "name": "theia",
+  "packageManager": "pnpm@11.1.1",
   "engines": {
-    "node": ">=18",
-    "npm": ">=8"
+    "node": ">=24",
+    "pnpm": ">=11"
   },
   "scripts": {
-    "build": "pnpm --filter theia-electron bundle",
+    "plugins": "pnpm --filter theia-electron plugins",
+    "compile": "pnpm --filter theia-electron compile",
     "start": "pnpm --filter theia-electron start",
-    "watch": "pnpm --filter theia-extension-* --filter theia-electron --parallel watch"
+    "dev": "pnpm --filter theia-electron dev",
+    "build": "pnpm --filter theia-electron package"
   },
-  "devDependencies": {
-    "lerna": "2.4.0"
-  }
+  "devDependencies": {}
 }

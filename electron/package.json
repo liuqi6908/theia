@@ -14,6 +14,7 @@
     "@theia/editor": "1.71.1",
     "@theia/editor-preview": "1.71.1",
     "@theia/electron": "1.71.1",
+    "@theia/external-terminal": "1.71.1",
     "@theia/file-search": "1.71.1",
     "@theia/filesystem": "1.71.1",
     "@theia/markers": "1.71.1",
@@ -39,31 +40,125 @@
     "@theia/variable-resolver": "1.71.1",
     "@theia/vsx-registry": "1.71.1",
     "@theia/workspace": "1.71.1",
-    "theia-extension-workbench-layout": "workspace:^",
-    "theia-extension-zh-cn-language-pack": "workspace:^"
+    "theia-extension-zh-cn-language-pack": "workspace:^",
+    "theia-extension-workbench-layout": "workspace:^"
   },
   "devDependencies": {
     "@theia/cli": "1.71.1",
-    "electron": "39.8.7"
+    "electron": "39.8.7",
+    "concurrently": "^9.2.1",
+    "electron-builder": "^26.8.1"
   },
   "scripts": {
-    "bundle": "pnpm download:plugins && pnpm rebuild && theia build --mode development",
+    "plugins": "pnpm download:plugins",
+    "compile": "pnpm rebuild && theia build --mode development",
+    "compile:prod": "pnpm download:plugins && pnpm rebuild && theia build",
+    "dev": "concurrently -k -n watch,electron -c cyan,green \"pnpm --parallel --filter \\\"theia-extension-*\\\" --filter theia-electron watch\" \"pnpm start\"",
     "download:plugins": "theia download:plugins",
+    "package": "pnpm clean:dist && pnpm compile:prod && electron-builder -c.mac.identity=null --publish never",
+    "package:preview": "pnpm clean:dist && pnpm compile:prod && electron-builder -c.mac.identity=null --dir",
+    "clean:dist": "rimraf dist",
     "rebuild": "theia rebuild:electron --cacheRoot ..",
     "start": "theia start --plugins=local-dir:plugins",
-    "watch": "pnpm download:plugins && pnpm rebuild && theia build --watch --mode development"
+    "watch": "theia build --watch --mode development"
   },
   "theiaPluginsDir": "plugins",
   "theiaPlugins": {
     "vscode-builtin-extensions": "https://github.com/eclipse-theia/vscode-builtin-extensions/releases/download/1.108.2/vscode-builtin-extensions-1.108.2.tar.gz",
     "ms-ceintl.vscode-language-pack-zh-hans": "https://open-vsx.org/api/MS-CEINTL/vscode-language-pack-zh-hans/1.110.0/file/MS-CEINTL.vscode-language-pack-zh-hans-1.110.0.vsix"
   },
+  "theiaPluginsExcludeIds": [
+    "ms-vscode.js-debug",
+    "ms-vscode.js-debug-companion",
+    "ms-vscode.vscode-js-profile-table",
+    "vscode.clojure",
+    "vscode.coffeescript",
+    "vscode.cpp",
+    "vscode.csharp",
+    "vscode.dart",
+    "vscode.debug-auto-launch",
+    "vscode.docker",
+    "vscode.emmet",
+    "vscode.extension-editing",
+    "vscode.fsharp",
+    "vscode.github",
+    "vscode.github-authentication",
+    "vscode.go",
+    "vscode.groovy",
+    "vscode.grunt",
+    "vscode.gulp",
+    "vscode.handlebars",
+    "vscode.hlsl",
+    "vscode.jake",
+    "vscode.java",
+    "vscode.julia",
+    "vscode.latex",
+    "vscode.less",
+    "vscode.lua",
+    "vscode.make",
+    "vscode.mermaid-chat-features",
+    "vscode.objective-c",
+    "vscode.perl",
+    "vscode.php",
+    "vscode.php-language-features",
+    "vscode.pug",
+    "vscode.razor",
+    "vscode.restructuredtext",
+    "vscode.r",
+    "vscode.ruby",
+    "vscode.rust",
+    "vscode.shaderlab",
+    "vscode.scss",
+    "vscode.swift",
+    "vscode.theme-abyss",
+    "vscode.theme-defaults",
+    "vscode.theme-kimbie-dark",
+    "vscode.theme-monokai",
+    "vscode.theme-monokai-dimmed",
+    "vscode.theme-quietlight",
+    "vscode.theme-red",
+    "vscode.theme-solarized-dark",
+    "vscode.theme-solarized-light",
+    "vscode.theme-tomorrow-night-blue",
+    "vscode.tunnel-forwarding",
+    "vscode.vb",
+    "vscode.vscode-theme-seti"
+  ],
   "theia": {
     "target": "electron",
     "frontend": {
       "config": {
         "defaultLocale": "zh-cn"
       }
+    }
+  },
+  "build": {
+    "appId": "com.example.theia",
+    "productName": "Theia",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "lib/**/*",
+      "plugins/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
     }
   }
 }
