@@ -22,35 +22,15 @@ pnpm start
 
 ## 安装第三方扩展
 
-应用已启用 Theia 的插件宿主、VS Code 扩展兼容层和 Open VSX 扩展市场。启动后打开左侧活动栏的 Extensions 视图，搜索需要的扩展并点击 Install 即可安装。
-
-应用内置了 Chinese (Simplified) Language Pack，并将默认界面语言设置为简体中文。应用还会下载 `vscode-builtin-extensions`，用于补齐 VS Code 内置扩展能力，其中包括提供 Git 集成的 `vscode.git` 和 `vscode.git-base`。构建时会通过 `pnpm --filter theia-electron download:plugins` 下载内置扩展，启动时会从 `electron/plugins` 加载。
+- 已启用插件宿主、VS Code 扩展兼容层和 Open VSX 扩展市场，可在 Extensions 视图中搜索并安装扩展。
+- 构建时会下载 Chinese (Simplified) Language Pack，并将默认界面语言设置为简体中文。
+- 构建时会下载 `vscode-builtin-extensions`，补齐 VS Code 内置扩展能力，包括 Git 集成、内置语言支持、主题、调试、Emmet、Markdown/JSON/HTML/CSS/TypeScript 等常用能力。
 
 ## Theia 官方扩展
 
-以 `theia-ide` 完全体为参照，当前项目已经引入以下官方扩展。
+以 `theia-ide` 完全体为参照，当前项目已经显式引入以下官方扩展。
 
-直接引入：
-
-```text
-@theia/core
-@theia/editor
-@theia/electron
-@theia/filesystem
-@theia/markers
-@theia/messages
-@theia/monaco
-@theia/navigator
-@theia/plugin-ext
-@theia/plugin-ext-vscode
-@theia/preferences
-@theia/process
-@theia/terminal
-@theia/vsx-registry
-@theia/workspace
-```
-
-间接引入：
+基础扩展：
 
 ```text
 @theia/ai-core
@@ -58,21 +38,36 @@ pnpm start
 @theia/bulk-edit
 @theia/callhierarchy
 @theia/console
+@theia/core
 @theia/debug
+@theia/editor
 @theia/editor-preview
+@theia/electron
 @theia/file-search
+@theia/filesystem
+@theia/markers
+@theia/messages
+@theia/monaco
+@theia/navigator
 @theia/notebook
 @theia/outline-view
 @theia/output
+@theia/plugin-ext
+@theia/plugin-ext-vscode
+@theia/preferences
+@theia/process
 @theia/scm
 @theia/search-in-workspace
 @theia/task
+@theia/terminal
 @theia/terminal-manager
 @theia/test
 @theia/timeline
 @theia/typehierarchy
 @theia/userstorage
 @theia/variable-resolver
+@theia/vsx-registry
+@theia/workspace
 ```
 
 相比 `theia-ide` 完全体，当前项目尚未引入：

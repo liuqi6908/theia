@@ -18,15 +18,39 @@ importers:
 
   electron:
     dependencies:
+      '@theia/ai-core':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/ai-mcp':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)(zod@3.25.76)
+      '@theia/bulk-edit':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/callhierarchy':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
+      '@theia/console':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/core':
         specifier: 1.71.1
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
+      '@theia/debug':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/editor':
         specifier: 1.71.1
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
+      '@theia/editor-preview':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/electron':
         specifier: 1.71.1
         version: 1.71.1(electron@39.8.7)
+      '@theia/file-search':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/filesystem':
         specifier: 1.71.1
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
@@ -42,6 +66,15 @@ importers:
       '@theia/navigator':
         specifier: 1.71.1
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/notebook':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
+      '@theia/outline-view':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
+      '@theia/output':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/plugin-ext':
         specifier: 1.71.1
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
@@ -54,9 +87,36 @@ importers:
       '@theia/process':
         specifier: 1.71.1
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
+      '@theia/scm':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react@18.3.1)(typescript@5.9.3)
+      '@theia/search-in-workspace':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react@18.3.1)(typescript@5.9.3)
+      '@theia/task':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/terminal':
         specifier: 1.71.1
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/terminal-manager':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/test':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/timeline':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/typehierarchy':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
+      '@theia/userstorage':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/variable-resolver':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/vsx-registry':
         specifier: 1.71.1
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
