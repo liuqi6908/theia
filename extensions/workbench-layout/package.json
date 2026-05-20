@@ -1,8 +1,8 @@
 {
-  "name": "theia-extension-hello-world",
+  "name": "theia-extension-workbench-layout",
   "keywords": [
     "theia-extension",
-    "hello-world"
+    "workbench-layout"
   ],
   "version": "0.0.0",
   "files": [
@@ -10,7 +10,8 @@
     "src"
   ],
   "dependencies": {
-    "@theia/core": "1.71.1"
+    "@theia/core": "1.71.1",
+    "@theia/outline-view": "1.71.1"
   },
   "devDependencies": {
     "rimraf": "^5.0.0",
@@ -24,7 +25,7 @@
   },
   "theiaExtensions": [
     {
-      "frontend": "lib/browser/hello-world-frontend-module"
+      "frontend": "lib/browser/frontend-module"
     }
   ]
 }

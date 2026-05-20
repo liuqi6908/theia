@@ -63,9 +63,9 @@ importers:
       '@theia/workspace':
         specifier: 1.71.1
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
-      theia-extension-hello-world:
+      theia-extension-workbench-layout:
         specifier: workspace:^
-        version: link:../extensions/hello-world
+        version: link:../extensions/workbench-layout
       theia-extension-zh-cn-language-pack:
         specifier: workspace:^
         version: link:../extensions/zh-cn-language-pack
@@ -77,9 +77,12 @@ importers:
         specifier: 39.8.7
         version: 39.8.7
 
-  extensions/hello-world:
+  extensions/workbench-layout:
     dependencies:
       '@theia/core':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
+      '@theia/outline-view':
         specifier: 1.71.1
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
     devDependencies:

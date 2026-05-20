@@ -19,7 +19,7 @@
     "@theia/terminal": "1.71.1",
     "@theia/vsx-registry": "1.71.1",
     "@theia/workspace": "1.71.1",
-    "theia-extension-hello-world": "workspace:^",
+    "theia-extension-workbench-layout": "workspace:^",
     "theia-extension-zh-cn-language-pack": "workspace:^"
   },
   "devDependencies": {
