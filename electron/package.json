@@ -35,6 +35,7 @@
   },
   "theiaPluginsDir": "plugins",
   "theiaPlugins": {
+    "vscode-builtin-extensions": "https://github.com/eclipse-theia/vscode-builtin-extensions/releases/download/1.108.2/vscode-builtin-extensions-1.108.2.tar.gz",
     "ms-ceintl.vscode-language-pack-zh-hans": "https://open-vsx.org/api/MS-CEINTL/vscode-language-pack-zh-hans/1.110.0/file/MS-CEINTL.vscode-language-pack-zh-hans-1.110.0.vsix"
   },
   "theia": {
