@@ -34,3 +34,46 @@ index d18a0a93170d835a19cfa04b87321cad126121ad..b6d24f515abe8c3f8c6b93e2666a602f
      export const SHOW_RECOMMENDATIONS = Command.toDefaultLocalizedCommand({
          id: 'vsxExtension.showRecommendations',
          label: 'Show Recommended Extensions',
+diff --git a/lib/browser/vsx-extension.js b/lib/browser/vsx-extension.js
+index 7f4fc8fdff3e56f4d5dd7857c2da40b1342f0b16..7d56ed092181108de2f4a387663f3e5839c44136 100644
+--- a/lib/browser/vsx-extension.js
++++ b/lib/browser/vsx-extension.js
+@@ -473,7 +473,8 @@ class VSXExtensionComponent extends AbstractVSXExtensionComponent {
+                 this.props.hoverService.requestHover({
+                     content: new markdown_rendering_1.MarkdownStringImpl(tooltip),
+                     target: event.currentTarget,
+-                    position: 'right'
++                    position: 'right',
++                    cssClasses: ['theia-vsx-extension-hover']
+                 });
+             }, onMouseUp: event => {
+                 if (event.button === 2) {
+diff --git a/src/browser/style/index.css b/src/browser/style/index.css
+index d7de2c5d5f2b55822b25dab70365f377f632d49a..b539b9b3eebfb9d1884a6706d7023adaf20469fa 100644
+--- a/src/browser/style/index.css
++++ b/src/browser/style/index.css
+@@ -194,6 +194,10 @@
+   padding-right: calc(var(--theia-ui-padding) * 2);
+ }
+ 
++.theia-vsx-extension-hover {
++  pointer-events: none;
++}
++
+ .theia-vsx-extension-publisher {
+   font-weight: 600;
+   font-size: 90%;
+diff --git a/src/browser/vsx-extension.tsx b/src/browser/vsx-extension.tsx
+index 7123c11edba858ca8af4927c1ac7052f0b4c5d65..7fd1d243083a282114205c70e475d017b6da7f9f 100644
+--- a/src/browser/vsx-extension.tsx
++++ b/src/browser/vsx-extension.tsx
+@@ -575,7 +575,8 @@ export class VSXExtensionComponent<Props extends VSXExtensionComponent.Props = V
+                 this.props.hoverService.requestHover({
+                     content: new MarkdownStringImpl(tooltip),
+                     target: event.currentTarget,
+-                    position: 'right'
++                    position: 'right',
++                    cssClasses: ['theia-vsx-extension-hover']
+                 });
+             }}
+             onMouseUp={event => {

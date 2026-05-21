@@ -18,7 +18,7 @@ patchedDependencies:
   '@theia/preferences@1.71.1': b3b83a4af158d0ad550abb583339f5631ae325df33fc82aaf5a1b8e19f55b285
   '@theia/search-in-workspace@1.71.1': 35a541ec9d59d0eafbd19ac75580bfddb673bd5b2228369953605d8c0ff31aee
   '@theia/task@1.71.1': 1bb91eebef3d31371e80ba0dff8efd15ff482213cde166157d3608bbbcbb61f6
-  '@theia/vsx-registry@1.71.1': ed2a15b78bd877ac91373b166e4c6e430e61bd33c7aa972d9e77041d15f3cb4c
+  '@theia/vsx-registry@1.71.1': 2aa851a290abaf61c12f57f44d264f84aa808ee7dcb3983f5a64f5521ca77e5a
 
 importers:
 
@@ -71,7 +71,7 @@ importers:
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/vsx-registry':
         specifier: 1.71.1
-        version: 1.71.1(patch_hash=ed2a15b78bd877ac91373b166e4c6e430e61bd33c7aa972d9e77041d15f3cb4c)(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
+        version: 1.71.1(patch_hash=2aa851a290abaf61c12f57f44d264f84aa808ee7dcb3983f5a64f5521ca77e5a)(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
       '@theia/workspace':
         specifier: 1.71.1
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
@@ -7598,7 +7598,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@theia/vsx-registry@1.71.1(patch_hash=ed2a15b78bd877ac91373b166e4c6e430e61bd33c7aa972d9e77041d15f3cb4c)(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)':
+  '@theia/vsx-registry@1.71.1(patch_hash=2aa851a290abaf61c12f57f44d264f84aa808ee7dcb3983f5a64f5521ca77e5a)(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)':
     dependencies:
       '@theia/core': 1.71.1(patch_hash=7e378826fd9bca0aea73be0c6243ddb10d716b5408941f10f504ce99bb9afce4)(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/filesystem': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
