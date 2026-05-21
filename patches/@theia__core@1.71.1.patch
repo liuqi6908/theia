@@ -1,5 +1,25 @@
+diff --git a/lib/browser/common-frontend-contribution.js b/lib/browser/common-frontend-contribution.js
+index e724c724d9aaa4eb1fd277ddcae1094972461048..17507f7c47284777c190be6b257894602dbdc898 100644
+--- a/lib/browser/common-frontend-contribution.js
++++ b/lib/browser/common-frontend-contribution.js
+@@ -717,7 +717,14 @@ let CommonFrontendContribution = class CommonFrontendContribution {
+             execute: async () => this.showNewFilePicker()
+         });
+         for (const [index, ordinal] of this.getOrdinalNumbers().entries()) {
+-            commandRegistry.registerCommand({ id: `workbench.action.focus${ordinal}EditorGroup`, label: index === 0 ? nls_1.nls.localizeByDefault('Focus First Editor Group') : '', category: nls_1.nls.localize(common_commands_1.CommonCommands.VIEW_CATEGORY_KEY, common_commands_1.CommonCommands.VIEW_CATEGORY) }, {
++            const firstEditorGroupLabel = index === 0 ? 'Focus First Editor Group' : '';
++            commandRegistry.registerCommand({
++                id: `workbench.action.focus${ordinal}EditorGroup`,
++                label: firstEditorGroupLabel ? nls_1.nls.localizeByDefault(firstEditorGroupLabel) : '',
++                originalLabel: firstEditorGroupLabel,
++                category: nls_1.nls.localize(common_commands_1.CommonCommands.VIEW_CATEGORY_KEY, common_commands_1.CommonCommands.VIEW_CATEGORY),
++                originalCategory: common_commands_1.CommonCommands.VIEW_CATEGORY
++            }, {
+                 isEnabled: () => this.shell.mainAreaTabBars.length > index,
+                 execute: () => {
+                     const widget = this.shell.mainAreaTabBars[index]?.currentTitle?.owner;
 diff --git a/lib/browser/shell/view-contribution.js b/lib/browser/shell/view-contribution.js
-index 6304d159512588c75b21e1c217da7b363b31af95..0d645c7587d4148579009de118a6c86c224f6256 100644
+index 6304d159512588c75b21e1c217da7b363b31af95..bb1fe97b6f3a453b27e052ed74a2549884a860f0 100644
 --- a/lib/browser/shell/view-contribution.js
 +++ b/lib/browser/shell/view-contribution.js
 @@ -39,10 +39,13 @@ let AbstractViewContribution = class AbstractViewContribution {
@@ -18,7 +38,7 @@ index 6304d159512588c75b21e1c217da7b363b31af95..0d645c7587d4148579009de118a6c86c
          }
      }
 diff --git a/lib/common/nls.d.ts b/lib/common/nls.d.ts
-index f26acec6e248db057d192ba7250b5e11efc985a8..04e0ff85307e8963553710098b604f167b29c17f 100644
+index f26acec6e248db057d192ba7250b5e11efc985a8..6ffd216c131542d4209e9cef2b08e2b5e01ce6c4 100644
 --- a/lib/common/nls.d.ts
 +++ b/lib/common/nls.d.ts
 @@ -9,6 +9,7 @@ export declare namespace nls {
@@ -30,7 +50,7 @@ index f26acec6e248db057d192ba7250b5e11efc985a8..04e0ff85307e8963553710098b604f16
      function isSelectedLocale(id: string): boolean;
      function setLocale(id: string): void;
 diff --git a/lib/common/nls.js b/lib/common/nls.js
-index 639974b94f48fd4748b05a71f7e719995ae576cc..e4ee2e5473837cb63c5ac82a6bb714675533b773 100644
+index 639974b94f48fd4748b05a71f7e719995ae576cc..8ff2c0ad16a130e0d52b01102270e5ff14adb17c 100644
 --- a/lib/common/nls.js
 +++ b/lib/common/nls.js
 @@ -50,6 +50,13 @@ var nls;
@@ -132,7 +152,7 @@ index 639974b94f48fd4748b05a71f7e719995ae576cc..e4ee2e5473837cb63c5ac82a6bb71467
                  data.set(message, key);
                  if (this.preferredKeys.has(key)) {
 diff --git a/lib/node/i18n/localization-provider.js b/lib/node/i18n/localization-provider.js
-index 0f04c94841ee87eafb7d53332c5d8d7cd5f51548..f6abdabdb1ff544b4166ac703e0f701966e55e6e 100644
+index 0f04c94841ee87eafb7d53332c5d8d7cd5f51548..2861bb6b2b84ab47eddda61c6b0e865fb00921f4 100644
 --- a/lib/node/i18n/localization-provider.js
 +++ b/lib/node/i18n/localization-provider.js
 @@ -93,6 +93,7 @@ let LocalizationProvider = class LocalizationProvider {
@@ -143,6 +163,26 @@ index 0f04c94841ee87eafb7d53332c5d8d7cd5f51548..f6abdabdb1ff544b4166ac703e0f7019
          for (const localization of localizations) {
              merged.languageName ||= localization.languageName;
              merged.localizedLanguageName ||= localization.localizedLanguageName;
+diff --git a/src/browser/common-frontend-contribution.ts b/src/browser/common-frontend-contribution.ts
+index 8512748141a52b2a15b05e2a07c2c5cf72efb8de..bbec8f9a25fa728865ec2bc923ed24459800886a 100644
+--- a/src/browser/common-frontend-contribution.ts
++++ b/src/browser/common-frontend-contribution.ts
+@@ -798,7 +798,14 @@ export class CommonFrontendContribution implements FrontendApplicationContributi
+         });
+ 
+         for (const [index, ordinal] of this.getOrdinalNumbers().entries()) {
+-            commandRegistry.registerCommand({ id: `workbench.action.focus${ordinal}EditorGroup`, label: index === 0 ? nls.localizeByDefault('Focus First Editor Group') : '', category: nls.localize(CommonCommands.VIEW_CATEGORY_KEY, CommonCommands.VIEW_CATEGORY) }, {
++            const firstEditorGroupLabel = index === 0 ? 'Focus First Editor Group' : '';
++            commandRegistry.registerCommand({
++                id: `workbench.action.focus${ordinal}EditorGroup`,
++                label: firstEditorGroupLabel ? nls.localizeByDefault(firstEditorGroupLabel) : '',
++                originalLabel: firstEditorGroupLabel,
++                category: nls.localize(CommonCommands.VIEW_CATEGORY_KEY, CommonCommands.VIEW_CATEGORY),
++                originalCategory: CommonCommands.VIEW_CATEGORY
++            }, {
+                 isEnabled: () => this.shell.mainAreaTabBars.length > index,
+                 execute: () => {
+                     const widget = this.shell.mainAreaTabBars[index]?.currentTitle?.owner;
 diff --git a/src/browser/shell/view-contribution.ts b/src/browser/shell/view-contribution.ts
 index 6229664dacbeaa9e866ba67818c4c37b5bcbfd66..28c60f387d233f755762fe41327da4e7f92eccff 100644
 --- a/src/browser/shell/view-contribution.ts

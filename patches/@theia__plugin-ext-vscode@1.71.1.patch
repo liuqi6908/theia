@@ -1,0 +1,44 @@
+diff --git a/lib/browser/plugin-vscode-commands-contribution.js b/lib/browser/plugin-vscode-commands-contribution.js
+index 51675d34759d905a3667190bf693caccfbccc82c..36bdfc7d11f0694bad22e56d8efa3f5a9ac16ba8 100644
+--- a/lib/browser/plugin-vscode-commands-contribution.js
++++ b/lib/browser/plugin-vscode-commands-contribution.js
+@@ -337,13 +337,15 @@ let PluginVscodeCommandsContribution = class PluginVscodeCommandsContribution {
+         };
+         commands.registerCommand({
+             id: 'workbench.action.closeEditorsInGroup',
+-            label: nls_1.nls.localizeByDefault('Close All Editors in Group')
++            label: nls_1.nls.localizeByDefault('Close All Editors in Group'),
++            originalLabel: 'Close All Editors in Group'
+         }, {
+             execute: (uri) => performActionOnGroup(this.shell.closeTabs, uri)
+         });
+         commands.registerCommand({
+             id: 'workbench.files.saveAllInGroup',
+-            label: nls_1.nls.localizeByDefault('Save All in Group')
++            label: nls_1.nls.localizeByDefault('Save All in Group'),
++            originalLabel: 'Save All in Group'
+         }, {
+             execute: (uri) => performActionOnGroup(this.shell.saveTabs, uri)
+         });
+diff --git a/src/browser/plugin-vscode-commands-contribution.ts b/src/browser/plugin-vscode-commands-contribution.ts
+index f756a11438fac66c72d01cbd61a1b7d74e7b6562..2250bbe1616cf580937361aef40227efd13f7b0e 100755
+--- a/src/browser/plugin-vscode-commands-contribution.ts
++++ b/src/browser/plugin-vscode-commands-contribution.ts
+@@ -483,13 +483,15 @@ export class PluginVscodeCommandsContribution implements CommandContribution {
+ 
+         commands.registerCommand({
+             id: 'workbench.action.closeEditorsInGroup',
+-            label: nls.localizeByDefault('Close All Editors in Group')
++            label: nls.localizeByDefault('Close All Editors in Group'),
++            originalLabel: 'Close All Editors in Group'
+         }, {
+             execute: (uri?: monaco.Uri) => performActionOnGroup(this.shell.closeTabs, uri)
+         });
+         commands.registerCommand({
+             id: 'workbench.files.saveAllInGroup',
+-            label: nls.localizeByDefault('Save All in Group')
++            label: nls.localizeByDefault('Save All in Group'),
++            originalLabel: 'Save All in Group'
+         }, {
+             execute: (uri?: monaco.Uri) => performActionOnGroup(this.shell.saveTabs, uri)
+         });
