@@ -1,0 +1,26 @@
+diff --git a/lib/browser/search-in-workspace-result-tree-widget.js b/lib/browser/search-in-workspace-result-tree-widget.js
+index 25089093c607fe7018c544365f8466312385d7bd..99a635acc082ceeb8417faafe27644fe3d4235c0 100644
+--- a/lib/browser/search-in-workspace-result-tree-widget.js
++++ b/lib/browser/search-in-workspace-result-tree-widget.js
+@@ -822,7 +822,7 @@ let SearchInWorkspaceResultTreeWidget = class SearchInWorkspaceResultTreeWidget
+         e.stopPropagation();
+     }
+     renderRemoveButton(node) {
+-        return React.createElement("span", { className: (0, browser_1.codicon)('close'), onClick: e => this.remove(node, e), title: 'Dismiss' });
++        return React.createElement("span", { className: (0, browser_1.codicon)('close'), onClick: e => this.remove(node, e), title: nls_1.nls.localizeByDefault('Dismiss') });
+     }
+     removeNode(node) {
+         if (SearchInWorkspaceRootFolderNode.is(node)) {
+diff --git a/src/browser/search-in-workspace-result-tree-widget.tsx b/src/browser/search-in-workspace-result-tree-widget.tsx
+index eda919843918da28486c542a160bae02717b79ef..60cebb40d18338fdd516e623a9d8c5be5f6bf0f0 100644
+--- a/src/browser/search-in-workspace-result-tree-widget.tsx
++++ b/src/browser/search-in-workspace-result-tree-widget.tsx
+@@ -995,7 +995,7 @@ export class SearchInWorkspaceResultTreeWidget extends TreeWidget {
+     }
+ 
+     protected renderRemoveButton(node: TreeNode): React.ReactNode {
+-        return <span className={codicon('close')} onClick={e => this.remove(node, e)} title='Dismiss'></span>;
++        return <span className={codicon('close')} onClick={e => this.remove(node, e)} title={nls.localizeByDefault('Dismiss')}></span>;
+     }
+ 
+     removeNode(node: TreeNode): void {

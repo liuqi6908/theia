@@ -1,0 +1,258 @@
+diff --git a/lib/browser/shell/view-contribution.js b/lib/browser/shell/view-contribution.js
+index 6304d159512588c75b21e1c217da7b363b31af95..0d645c7587d4148579009de118a6c86c224f6256 100644
+--- a/lib/browser/shell/view-contribution.js
++++ b/lib/browser/shell/view-contribution.js
+@@ -39,10 +39,13 @@ let AbstractViewContribution = class AbstractViewContribution {
+     constructor(options) {
+         this.options = options;
+         if (options.toggleCommandId) {
++            const originalViewLabel = common_1.nls.getDefaultValue(this.viewLabel) || this.viewLabel;
+             this.toggleCommand = {
+                 id: options.toggleCommandId,
+                 category: common_1.nls.localizeByDefault('View'),
+-                label: common_1.nls.localizeByDefault('Toggle {0}', this.viewLabel)
++                originalCategory: 'View',
++                label: common_1.nls.localizeByDefault('Toggle {0}', this.viewLabel),
++                originalLabel: `Toggle ${originalViewLabel}`
+             };
+         }
+     }
+diff --git a/lib/common/nls.d.ts b/lib/common/nls.d.ts
+index f26acec6e248db057d192ba7250b5e11efc985a8..04e0ff85307e8963553710098b604f167b29c17f 100644
+--- a/lib/common/nls.d.ts
++++ b/lib/common/nls.d.ts
+@@ -9,6 +9,7 @@ export declare namespace nls {
+      */
+     function localizeByDefault(defaultValue: string, ...args: FormatType[]): string;
+     function getDefaultKey(defaultValue: string): string;
++    function getDefaultValue(localizedValue: string): string | undefined;
+     function localize(key: string, defaultValue: string, ...args: FormatType[]): string;
+     function isSelectedLocale(id: string): boolean;
+     function setLocale(id: string): void;
+diff --git a/lib/common/nls.js b/lib/common/nls.js
+index 639974b94f48fd4748b05a71f7e719995ae576cc..e4ee2e5473837cb63c5ac82a6bb714675533b773 100644
+--- a/lib/common/nls.js
++++ b/lib/common/nls.js
+@@ -50,6 +50,13 @@ var nls;
+         return '';
+     }
+     nls.getDefaultKey = getDefaultKey;
++    function getDefaultValue(localizedValue) {
++        if (!keyProvider) {
++            keyProvider = new LocalizationKeyProvider();
++        }
++        return keyProvider.getDefaultValue(localizedValue, nls.localization);
++    }
++    nls.getDefaultValue = getDefaultValue;
+     function localize(key, defaultValue, ...args) {
+         return localization_1.Localization.localize(nls.localization, key, defaultValue, ...args);
+     }
+@@ -99,12 +106,75 @@ class LocalizationKeyProvider {
+             // Needed for `Close Editor` translation
+             'vscode/editor.contribution/closeEditor'
+         ]);
++        this.defaultValues = new Map();
+         this.data = this.buildData();
+     }
+     get(defaultValue) {
+         const normalized = localization_1.Localization.normalize(defaultValue);
+         return this.data.get(normalized) || this.data.get(normalized.toUpperCase());
+     }
++    getDefaultValue(localizedValue, localization) {
++        const normalized = localization_1.Localization.normalize(localizedValue);
++        if (localization) {
++            for (const [defaultValue, replacement] of Object.entries(localization.replacements ?? {})) {
++                if (typeof replacement === 'string' && localization_1.Localization.normalize(replacement) === normalized) {
++                    return defaultValue;
++                }
++            }
++            const candidates = [];
++            for (const [key, translation] of Object.entries(localization.translations)) {
++                if (typeof translation === 'string' && localization_1.Localization.normalize(translation) === normalized) {
++                    const defaultValue = this.getDefaultValueForKey(key);
++                    if (defaultValue) {
++                        candidates.push({ value: defaultValue, score: this.scoreDefaultValueCandidate(defaultValue, key) });
++                    }
++                }
++            }
++            if (candidates.length) {
++                candidates.sort((a, b) => b.score - a.score);
++                return candidates[0].value;
++            }
++        }
++        return this.get(localizedValue) ? localizedValue : undefined;
++    }
++    scoreDefaultValueCandidate(value, key) {
++        let score = /^[A-Z]/.test(value) ? 10 : 0;
++        if (key.includes('.contribution/')) {
++            score += 8;
++        }
++        if (key.includes('Viewlet/') || key.includes('ViewPane/')) {
++            score += 4;
++        }
++        if (key.includes('ConfigurationTitle') || key.includes('/settingsLayout/')) {
++            score -= 5;
++        }
++        if (key.includes('suggestWidget.kind')) {
++            score -= 10;
++        }
++        if (value.endsWith('s')) {
++            score += 1;
++        }
++        if (value.endsWith(' View')) {
++            score -= 2;
++        }
++        return score;
++    }
++    getDefaultValueForKey(key) {
++        const direct = this.defaultValues.get(key);
++        if (direct) {
++            return direct;
++        }
++        const parts = key.split('/');
++        if (parts[0] === 'contents' && parts.length >= 3) {
++            const vscodeKey = `vscode/${parts[parts.length - 2]}/${parts[parts.length - 1]}`;
++            const defaultValue = this.defaultValues.get(vscodeKey);
++            if (defaultValue) {
++                return defaultValue;
++            }
++        }
++        const transformed = localization_1.Localization.transformKey(key);
++        return /^[A-Z]/.test(transformed) ? transformed : undefined;
++    }
+     /**
+      * Transforms the data coming from the `nls.metadata.json` file into a map.
+      * The original data contains arrays of keys and messages.
+@@ -120,6 +190,7 @@ class LocalizationKeyProvider {
+         const foundPreferredKeys = new Set();
+         const keysAndMessages = this.buildKeyMessageTuples(keys, messages);
+         for (const { key, message } of keysAndMessages) {
++            this.defaultValues.set(key, message);
+             if (!foundPreferredKeys.has(message)) {
+                 data.set(message, key);
+                 if (this.preferredKeys.has(key)) {
+diff --git a/src/browser/shell/view-contribution.ts b/src/browser/shell/view-contribution.ts
+index 6229664dacbeaa9e866ba67818c4c37b5bcbfd66..28c60f387d233f755762fe41327da4e7f92eccff 100644
+--- a/src/browser/shell/view-contribution.ts
++++ b/src/browser/shell/view-contribution.ts
+@@ -67,10 +67,13 @@ export abstract class AbstractViewContribution<T extends Widget> implements Comm
+         @unmanaged() protected readonly options: ViewContributionOptions
+     ) {
+         if (options.toggleCommandId) {
++            const originalViewLabel = nls.getDefaultValue(this.viewLabel) || this.viewLabel;
+             this.toggleCommand = {
+                 id: options.toggleCommandId,
+                 category: nls.localizeByDefault('View'),
+-                label: nls.localizeByDefault('Toggle {0}', this.viewLabel)
++                originalCategory: 'View',
++                label: nls.localizeByDefault('Toggle {0}', this.viewLabel),
++                originalLabel: `Toggle ${originalViewLabel}`
+             };
+         }
+     }
+diff --git a/src/common/nls.ts b/src/common/nls.ts
+index 21dc83e439cd32dacb1bdfc3c1090430563d2ea8..a9d17edaef7eca97abaec4155887c6db22f1f398 100644
+--- a/src/common/nls.ts
++++ b/src/common/nls.ts
+@@ -54,6 +54,13 @@ export namespace nls {
+         return '';
+     }
+ 
++    export function getDefaultValue(localizedValue: string): string | undefined {
++        if (!keyProvider) {
++            keyProvider = new LocalizationKeyProvider();
++        }
++        return keyProvider.getDefaultValue(localizedValue, localization);
++    }
++
+     export function localize(key: string, defaultValue: string, ...args: FormatType[]): string {
+         return Localization.localize(localization, key, defaultValue, ...args);
+     }
+@@ -112,6 +119,7 @@ class LocalizationKeyProvider {
+         // Needed for `Close Editor` translation
+         'vscode/editor.contribution/closeEditor'
+     ]);
++    private readonly defaultValues = new Map<string, string>();
+     private data = this.buildData();
+ 
+     get(defaultValue: string): string | undefined {
+@@ -119,6 +127,71 @@ class LocalizationKeyProvider {
+         return this.data.get(normalized) || this.data.get(normalized.toUpperCase());
+     }
+ 
++    getDefaultValue(localizedValue: string, localization: Localization | undefined): string | undefined {
++        const normalized = Localization.normalize(localizedValue);
++        if (localization) {
++            for (const [defaultValue, replacement] of Object.entries(localization.replacements ?? {})) {
++                if (typeof replacement === 'string' && Localization.normalize(replacement) === normalized) {
++                    return defaultValue;
++                }
++            }
++            const candidates: { value: string, score: number }[] = [];
++            for (const [key, translation] of Object.entries(localization.translations)) {
++                if (typeof translation === 'string' && Localization.normalize(translation) === normalized) {
++                    const defaultValue = this.getDefaultValueForKey(key);
++                    if (defaultValue) {
++                        candidates.push({ value: defaultValue, score: this.scoreDefaultValueCandidate(defaultValue, key) });
++                    }
++                }
++            }
++            if (candidates.length) {
++                candidates.sort((a, b) => b.score - a.score);
++                return candidates[0].value;
++            }
++        }
++        return this.get(localizedValue) ? localizedValue : undefined;
++    }
++
++    private scoreDefaultValueCandidate(value: string, key: string): number {
++        let score = /^[A-Z]/.test(value) ? 10 : 0;
++        if (key.includes('.contribution/')) {
++            score += 8;
++        }
++        if (key.includes('Viewlet/') || key.includes('ViewPane/')) {
++            score += 4;
++        }
++        if (key.includes('ConfigurationTitle') || key.includes('/settingsLayout/')) {
++            score -= 5;
++        }
++        if (key.includes('suggestWidget.kind')) {
++            score -= 10;
++        }
++        if (value.endsWith('s')) {
++            score += 1;
++        }
++        if (value.endsWith(' View')) {
++            score -= 2;
++        }
++        return score;
++    }
++
++    private getDefaultValueForKey(key: string): string | undefined {
++        const direct = this.defaultValues.get(key);
++        if (direct) {
++            return direct;
++        }
++        const parts = key.split('/');
++        if (parts[0] === 'contents' && parts.length >= 3) {
++            const vscodeKey = `vscode/${parts[parts.length - 2]}/${parts[parts.length - 1]}`;
++            const defaultValue = this.defaultValues.get(vscodeKey);
++            if (defaultValue) {
++                return defaultValue;
++            }
++        }
++        const transformed = Localization.transformKey(key);
++        return /^[A-Z]/.test(transformed) ? transformed : undefined;
++    }
++
+     /**
+      * Transforms the data coming from the `nls.metadata.json` file into a map.
+      * The original data contains arrays of keys and messages.
+@@ -134,6 +207,7 @@ class LocalizationKeyProvider {
+         const foundPreferredKeys = new Set<string>();
+         const keysAndMessages = this.buildKeyMessageTuples(keys, messages);
+         for (const { key, message } of keysAndMessages) {
++            this.defaultValues.set(key, message);
+             if (!foundPreferredKeys.has(message)) {
+                 data.set(message, key);
+                 if (this.preferredKeys.has(key)) {

@@ -1,0 +1,39 @@
+diff --git a/lib/browser/contributions/notebook-cell-actions-contribution.js b/lib/browser/contributions/notebook-cell-actions-contribution.js
+index bddae374152b5e8d3fd1bc44abb467cbab406d8d..9097b5855c2d079628258e35738f70ea3b4cf83d 100644
+--- a/lib/browser/contributions/notebook-cell-actions-contribution.js
++++ b/lib/browser/contributions/notebook-cell-actions-contribution.js
+@@ -118,12 +118,12 @@ var NotebookCellCommands;
+         id: 'notebook.cell.insertMarkdownCellBelow',
+         label: 'Insert Markdown Cell Below'
+     });
+-    NotebookCellCommands.TO_CODE_CELL_COMMAND = core_1.Command.toLocalizedCommand({
++    NotebookCellCommands.TO_CODE_CELL_COMMAND = core_1.Command.toDefaultLocalizedCommand({
+         id: 'notebook.cell.changeToCode',
+         category: 'Notebook',
+         label: 'Change Cell to Code'
+     });
+-    NotebookCellCommands.TO_MARKDOWN_CELL_COMMAND = core_1.Command.toLocalizedCommand({
++    NotebookCellCommands.TO_MARKDOWN_CELL_COMMAND = core_1.Command.toDefaultLocalizedCommand({
+         id: 'notebook.cell.changeToMarkdown',
+         category: 'Notebook',
+         label: 'Change Cell to Markdown'
+diff --git a/src/browser/contributions/notebook-cell-actions-contribution.ts b/src/browser/contributions/notebook-cell-actions-contribution.ts
+index a2b8b37653ef3d762071756423b6f34737c7f7b6..38c58f8fcefe33f5fa3734d9a90f8356f0f7404e 100644
+--- a/src/browser/contributions/notebook-cell-actions-contribution.ts
++++ b/src/browser/contributions/notebook-cell-actions-contribution.ts
+@@ -129,13 +129,13 @@ export namespace NotebookCellCommands {
+         label: 'Insert Markdown Cell Below'
+     });
+ 
+-    export const TO_CODE_CELL_COMMAND = Command.toLocalizedCommand({
++    export const TO_CODE_CELL_COMMAND = Command.toDefaultLocalizedCommand({
+         id: 'notebook.cell.changeToCode',
+         category: 'Notebook',
+         label: 'Change Cell to Code'
+     });
+ 
+-    export const TO_MARKDOWN_CELL_COMMAND = Command.toLocalizedCommand({
++    export const TO_MARKDOWN_CELL_COMMAND = Command.toDefaultLocalizedCommand({
+         id: 'notebook.cell.changeToMarkdown',
+         category: 'Notebook',
+         label: 'Change Cell to Markdown'

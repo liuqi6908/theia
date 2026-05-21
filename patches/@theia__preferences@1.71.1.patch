@@ -1,0 +1,35 @@
+diff --git a/lib/browser/preferences-monaco-contribution.js b/lib/browser/preferences-monaco-contribution.js
+index f89ec353916c181262675d74cf9438f0beab50ad..7836c06e16a81a2db171bd4538630ab22164d893 100644
+--- a/lib/browser/preferences-monaco-contribution.js
++++ b/lib/browser/preferences-monaco-contribution.js
+@@ -16,10 +16,11 @@
+ // *****************************************************************************
+ Object.defineProperty(exports, "__esModule", { value: true });
+ const monaco = require("@theia/monaco-editor-core");
++const core_1 = require("@theia/core");
+ monaco.languages.register({
+     id: 'jsonc',
+     'aliases': [
+-        'JSON with Comments'
++        core_1.nls.localize('theia/monaco/language/jsonc', 'JSON with Comments')
+     ],
+     'filenames': [
+         'settings.json'
+diff --git a/src/browser/preferences-monaco-contribution.ts b/src/browser/preferences-monaco-contribution.ts
+index f74acd2b16dc07346a44c159d2c23919d64918ee..57d45736d7962b2e644b9ca74b293ffc2643e06d 100644
+--- a/src/browser/preferences-monaco-contribution.ts
++++ b/src/browser/preferences-monaco-contribution.ts
+@@ -15,11 +15,12 @@
+ // *****************************************************************************
+ 
+ import * as monaco from '@theia/monaco-editor-core';
++import { nls } from '@theia/core';
+ 
+ monaco.languages.register({
+     id: 'jsonc',
+     'aliases': [
+-        'JSON with Comments'
++        nls.localize('theia/monaco/language/jsonc', 'JSON with Comments')
+     ],
+     'filenames': [
+         'settings.json'

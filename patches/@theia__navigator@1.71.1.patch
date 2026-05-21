@@ -1,0 +1,26 @@
+diff --git a/lib/electron-browser/electron-navigator-menu-contribution.js b/lib/electron-browser/electron-navigator-menu-contribution.js
+index 39176beec4022b0d91c57043d78fc7b74dad8545..d1662eb7f6f118e570621679e76e59857c2743f8 100644
+--- a/lib/electron-browser/electron-navigator-menu-contribution.js
++++ b/lib/electron-browser/electron-navigator-menu-contribution.js
+@@ -41,7 +41,7 @@ exports.OPEN_WITH_SYSTEM_APP = core_1.Command.toLocalizedCommand({
+     id: 'openWithSystemApp',
+     category: browser_1.CommonCommands.FILE_CATEGORY,
+     label: 'Open With System Editor'
+-}, 'theia/navigator/openWithSystemEditor');
++}, 'theia/navigator/openWithSystemEditor', 'vscode/fileActions.contribution/filesCategory');
+ let ElectronNavigatorMenuContribution = class ElectronNavigatorMenuContribution {
+     registerCommands(commands) {
+         commands.registerCommand(exports.OPEN_CONTAINING_FOLDER, uri_command_handler_1.UriAwareCommandHandler.MonoSelect(this.selectionService, {
+diff --git a/src/electron-browser/electron-navigator-menu-contribution.ts b/src/electron-browser/electron-navigator-menu-contribution.ts
+index 36ab139e81703d51374e1d0362d091e133505213..4b2dfe1da7f6631eb6bc4486d40bd1a27fe0b327 100644
+--- a/src/electron-browser/electron-navigator-menu-contribution.ts
++++ b/src/electron-browser/electron-navigator-menu-contribution.ts
+@@ -40,7 +40,7 @@ export const OPEN_WITH_SYSTEM_APP = Command.toLocalizedCommand({
+     id: 'openWithSystemApp',
+     category: CommonCommands.FILE_CATEGORY,
+     label: 'Open With System Editor'
+-}, 'theia/navigator/openWithSystemEditor');
++}, 'theia/navigator/openWithSystemEditor', 'vscode/fileActions.contribution/filesCategory');
+ 
+ @injectable()
+ export class ElectronNavigatorMenuContribution implements MenuContribution, CommandContribution, KeybindingContribution {
