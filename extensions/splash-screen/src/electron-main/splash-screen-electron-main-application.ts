@@ -20,8 +20,8 @@ export class SplashScreenElectronMainApplication extends ElectronMainApplication
         splashScreenOptions: {
           minDuration: 600,
           maxDuration: 30000,
-          width: 480,
-          height: 288,
+          width: 800,
+          height: 480,
           ...config.electron?.splashScreenOptions,
           content: config.electron?.splashScreenOptions?.content || SPLASH_SCREEN_CONTENT
         },
