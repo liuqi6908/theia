@@ -7,11 +7,12 @@
     "pnpm": ">=11"
   },
   "scripts": {
+    "postinstall": "theia check:theia-version",
+    "prepare": "pnpm --parallel --filter \"theia-extension-*\" prepare",
     "plugins": "pnpm --filter theia-electron plugins",
-    "compile": "pnpm --filter theia-electron compile",
+    "watch": "pnpm --parallel --filter \"theia-extension-*\" --filter theia-electron watch",
     "start": "pnpm --filter theia-electron start",
-    "dev": "pnpm --filter theia-electron dev",
-    "build": "pnpm --filter theia-electron package"
+    "build": "pnpm --filter theia-electron bundle"
   },
   "devDependencies": {}
 }
