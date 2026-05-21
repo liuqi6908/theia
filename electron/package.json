@@ -58,7 +58,7 @@
     "build:preview": "pnpm bundle && electron-builder --dir -c.mac.identity=null --publish never",
     "build:mac": "pnpm bundle && electron-builder --mac -c.mac.identity=null --publish never",
     "build:win": "pnpm bundle && electron-builder --win --publish never",
-    "plugins:download": "theia download:plugins --rate-limit=15 --parallel=false && pnpm plugins:permissions",
+    "plugins:download": "theia download:plugins --rate-limit=15 --parallel=false && pnpm plugins:prune && pnpm plugins:permissions",
     "plugins:permissions": "node scripts/make-files-writeable.js --directory plugins",
     "rebuild": "theia rebuild:electron --cacheRoot ..",
     "start": "theia start --plugins=local-dir:plugins",
@@ -71,7 +71,8 @@
   },
   "theiaPluginsExcludeIds": [
     "vscode.github",
-    "vscode.github-authentication"
+    "vscode.github-authentication",
+    "vscode.extension-editing"
   ],
   "theia": {
     "target": "electron",
