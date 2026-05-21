@@ -46,6 +46,9 @@
     "toggleRenderWhitespace": {
       "renderWhitespace.selection": "选择"
     },
+    "toggleWordWrap": {
+      "toggle.wordwrap": "切换自动换行"
+    },
     "userDataProfilesEditor": {
       "builtIn": "内置"
     }

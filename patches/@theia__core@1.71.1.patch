@@ -131,6 +131,18 @@ index 639974b94f48fd4748b05a71f7e719995ae576cc..e4ee2e5473837cb63c5ac82a6bb71467
              if (!foundPreferredKeys.has(message)) {
                  data.set(message, key);
                  if (this.preferredKeys.has(key)) {
+diff --git a/lib/node/i18n/localization-provider.js b/lib/node/i18n/localization-provider.js
+index 0f04c94841ee87eafb7d53332c5d8d7cd5f51548..f6abdabdb1ff544b4166ac703e0f701966e55e6e 100644
+--- a/lib/node/i18n/localization-provider.js
++++ b/lib/node/i18n/localization-provider.js
+@@ -93,6 +93,7 @@ let LocalizationProvider = class LocalizationProvider {
+             translations: {}
+         };
+         const localizations = await Promise.all(this.localizations.filter(e => e.languageId === languageId).map(LazyLocalization.toLocalization));
++        localizations.sort((a, b) => Number(!!b.languagePack) - Number(!!a.languagePack));
+         for (const localization of localizations) {
+             merged.languageName ||= localization.languageName;
+             merged.localizedLanguageName ||= localization.localizedLanguageName;
 diff --git a/src/browser/shell/view-contribution.ts b/src/browser/shell/view-contribution.ts
 index 6229664dacbeaa9e866ba67818c4c37b5bcbfd66..28c60f387d233f755762fe41327da4e7f92eccff 100644
 --- a/src/browser/shell/view-contribution.ts
@@ -256,3 +268,15 @@ index 21dc83e439cd32dacb1bdfc3c1090430563d2ea8..a9d17edaef7eca97abaec4155887c6db
              if (!foundPreferredKeys.has(message)) {
                  data.set(message, key);
                  if (this.preferredKeys.has(key)) {
+diff --git a/src/node/i18n/localization-provider.ts b/src/node/i18n/localization-provider.ts
+index 7064aaba3fbc13fe71ff2599f143c463b52ee0a8..fa95036ceece5036b74b8119c342ede6a2aa761a 100644
+--- a/src/node/i18n/localization-provider.ts
++++ b/src/node/i18n/localization-provider.ts
+@@ -113,6 +113,7 @@ export class LocalizationProvider {
+             translations: {}
+         };
+         const localizations = await Promise.all(this.localizations.filter(e => e.languageId === languageId).map(LazyLocalization.toLocalization));
++        localizations.sort((a, b) => Number(!!b.languagePack) - Number(!!a.languagePack));
+         for (const localization of localizations) {
+             merged.languageName ||= localization.languageName;
+             merged.localizedLanguageName ||= localization.localizedLanguageName;
