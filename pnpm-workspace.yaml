@@ -24,6 +24,7 @@ allowBuilds:
 patchedDependencies:
   '@theia/ai-core@1.71.1': patches/@theia__ai-core@1.71.1.patch
   '@theia/monaco@1.71.1': patches/@theia__monaco@1.71.1.patch
+  '@theia/navigator@1.71.1': patches/@theia__navigator@1.71.1.patch
   '@theia/notebook@1.71.1': patches/@theia__notebook@1.71.1.patch
   '@theia/preferences@1.71.1': patches/@theia__preferences@1.71.1.patch
   '@theia/search-in-workspace@1.71.1': patches/@theia__search-in-workspace@1.71.1.patch
