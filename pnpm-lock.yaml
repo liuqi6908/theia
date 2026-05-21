@@ -8,6 +8,15 @@ overrides:
   '@vscode/ripgrep': 1.17.1
   zod: 3.25.76
 
+patchedDependencies:
+  '@theia/ai-core@1.71.1': 820758e67693ba221c8d10e0abe61df0a12580d4cf6b24e7307bffe6211a0b24
+  '@theia/monaco@1.71.1': 91ebeecedda3fdb1e4a117befb4b08aa038e63916c0d4335c2bba7d716dcb548
+  '@theia/notebook@1.71.1': 51d0450ee070bd5d119c9443c9e0639b838cb7842147d19e42cfee4eee8d8807
+  '@theia/preferences@1.71.1': b3b83a4af158d0ad550abb583339f5631ae325df33fc82aaf5a1b8e19f55b285
+  '@theia/search-in-workspace@1.71.1': 35a541ec9d59d0eafbd19ac75580bfddb673bd5b2228369953605d8c0ff31aee
+  '@theia/task@1.71.1': 1bb91eebef3d31371e80ba0dff8efd15ff482213cde166157d3608bbbcbb61f6
+  '@theia/vsx-registry@1.71.1': ed2a15b78bd877ac91373b166e4c6e430e61bd33c7aa972d9e77041d15f3cb4c
+
 importers:
 
   .:
@@ -38,7 +47,7 @@ importers:
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@theia/monaco':
         specifier: 1.71.1
-        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+        version: 1.71.1(patch_hash=91ebeecedda3fdb1e4a117befb4b08aa038e63916c0d4335c2bba7d716dcb548)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/navigator':
         specifier: 1.71.1
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
@@ -50,7 +59,7 @@ importers:
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
       '@theia/preferences':
         specifier: 1.71.1
-        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+        version: 1.71.1(patch_hash=b3b83a4af158d0ad550abb583339f5631ae325df33fc82aaf5a1b8e19f55b285)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/process':
         specifier: 1.71.1
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
@@ -59,7 +68,7 @@ importers:
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/vsx-registry':
         specifier: 1.71.1
-        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
+        version: 1.71.1(patch_hash=ed2a15b78bd877ac91373b166e4c6e430e61bd33c7aa972d9e77041d15f3cb4c)(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
       '@theia/workspace':
         specifier: 1.71.1
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
@@ -6634,12 +6643,12 @@ snapshots:
     dependencies:
       defer-to-connect: 2.0.1
 
-  '@theia/ai-core@1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)':
+  '@theia/ai-core@1.71.1(patch_hash=820758e67693ba221c8d10e0abe61df0a12580d4cf6b24e7307bffe6211a0b24)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)':
     dependencies:
       '@theia/core': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/editor': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/filesystem': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
-      '@theia/monaco': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/monaco': 1.71.1(patch_hash=91ebeecedda3fdb1e4a117befb4b08aa038e63916c0d4335c2bba7d716dcb548)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/monaco-editor-core': 1.108.201
       '@theia/output': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/variable-resolver': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
@@ -6663,7 +6672,7 @@ snapshots:
   '@theia/ai-mcp@1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)(zod@3.25.76)':
     dependencies:
       '@modelcontextprotocol/sdk': 1.29.0(zod@3.25.76)
-      '@theia/ai-core': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/ai-core': 1.71.1(patch_hash=820758e67693ba221c8d10e0abe61df0a12580d4cf6b24e7307bffe6211a0b24)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/core': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/workspace': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
     transitivePeerDependencies:
@@ -6761,7 +6770,7 @@ snapshots:
       '@theia/core': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/editor': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/filesystem': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
-      '@theia/monaco': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/monaco': 1.71.1(patch_hash=91ebeecedda3fdb1e4a117befb4b08aa038e63916c0d4335c2bba7d716dcb548)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/monaco-editor-core': 1.108.201
       '@theia/workspace': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       tslib: 2.8.1
@@ -6848,7 +6857,7 @@ snapshots:
     dependencies:
       '@theia/core': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/editor': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
-      '@theia/monaco': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/monaco': 1.71.1(patch_hash=91ebeecedda3fdb1e4a117befb4b08aa038e63916c0d4335c2bba7d716dcb548)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/monaco-editor-core': 1.108.201
       anser: 2.3.5
       tslib: 2.8.1
@@ -6950,11 +6959,11 @@ snapshots:
       '@theia/editor': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/filesystem': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/markers': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
-      '@theia/monaco': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/monaco': 1.71.1(patch_hash=91ebeecedda3fdb1e4a117befb4b08aa038e63916c0d4335c2bba7d716dcb548)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/monaco-editor-core': 1.108.201
       '@theia/output': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/process': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
-      '@theia/task': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/task': 1.71.1(patch_hash=1bb91eebef3d31371e80ba0dff8efd15ff482213cde166157d3608bbbcbb61f6)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/terminal': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/test': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/variable-resolver': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
@@ -7121,7 +7130,7 @@ snapshots:
       dompurify: 3.2.7
       marked: 14.0.0
 
-  '@theia/monaco@1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)':
+  '@theia/monaco@1.71.1(patch_hash=91ebeecedda3fdb1e4a117befb4b08aa038e63916c0d4335c2bba7d716dcb548)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)':
     dependencies:
       '@theia/core': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/editor': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
@@ -7185,12 +7194,12 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@theia/notebook@1.71.1(@theia/electron@1.71.1(electron@39.8.7))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)':
+  '@theia/notebook@1.71.1(patch_hash=51d0450ee070bd5d119c9443c9e0639b838cb7842147d19e42cfee4eee8d8807)(@theia/electron@1.71.1(electron@39.8.7))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)':
     dependencies:
       '@theia/core': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/editor': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/filesystem': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
-      '@theia/monaco': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/monaco': 1.71.1(patch_hash=91ebeecedda3fdb1e4a117befb4b08aa038e63916c0d4335c2bba7d716dcb548)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/monaco-editor-core': 1.108.201
       '@theia/outline-view': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       advanced-mark.js: 2.7.1
@@ -7224,7 +7233,7 @@ snapshots:
     dependencies:
       '@theia/core': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/editor': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
-      '@theia/monaco': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/monaco': 1.71.1(patch_hash=91ebeecedda3fdb1e4a117befb4b08aa038e63916c0d4335c2bba7d716dcb548)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/monaco-editor-core': 1.108.201
       p-queue: 8.1.1
       tslib: 2.8.1
@@ -7252,7 +7261,7 @@ snapshots:
       '@theia/core': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/editor': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/filesystem': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
-      '@theia/monaco': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/monaco': 1.71.1(patch_hash=91ebeecedda3fdb1e4a117befb4b08aa038e63916c0d4335c2bba7d716dcb548)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/monaco-editor-core': 1.108.201
       '@theia/navigator': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/outline-view': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
@@ -7296,16 +7305,16 @@ snapshots:
       '@theia/filesystem': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/markers': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/messages': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@theia/monaco': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/monaco': 1.71.1(patch_hash=91ebeecedda3fdb1e4a117befb4b08aa038e63916c0d4335c2bba7d716dcb548)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/monaco-editor-core': 1.108.201
       '@theia/navigator': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
-      '@theia/notebook': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
+      '@theia/notebook': 1.71.1(patch_hash=51d0450ee070bd5d119c9443c9e0639b838cb7842147d19e42cfee4eee8d8807)(@theia/electron@1.71.1(electron@39.8.7))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
       '@theia/output': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/plugin': 1.71.1
-      '@theia/preferences': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/preferences': 1.71.1(patch_hash=b3b83a4af158d0ad550abb583339f5631ae325df33fc82aaf5a1b8e19f55b285)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/scm': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react@18.3.1)(typescript@5.9.3)
-      '@theia/search-in-workspace': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react@18.3.1)(typescript@5.9.3)
-      '@theia/task': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/search-in-workspace': 1.71.1(patch_hash=35a541ec9d59d0eafbd19ac75580bfddb673bd5b2228369953605d8c0ff31aee)(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react@18.3.1)(typescript@5.9.3)
+      '@theia/task': 1.71.1(patch_hash=1bb91eebef3d31371e80ba0dff8efd15ff482213cde166157d3608bbbcbb61f6)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/terminal': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/test': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/timeline': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
@@ -7347,12 +7356,12 @@ snapshots:
 
   '@theia/plugin@1.71.1': {}
 
-  '@theia/preferences@1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)':
+  '@theia/preferences@1.71.1(patch_hash=b3b83a4af158d0ad550abb583339f5631ae325df33fc82aaf5a1b8e19f55b285)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)':
     dependencies:
       '@theia/core': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/editor': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/filesystem': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
-      '@theia/monaco': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/monaco': 1.71.1(patch_hash=91ebeecedda3fdb1e4a117befb4b08aa038e63916c0d4335c2bba7d716dcb548)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/monaco-editor-core': 1.108.201
       '@theia/userstorage': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/workspace': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
@@ -7395,7 +7404,7 @@ snapshots:
       '@theia/core': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/editor': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/filesystem': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
-      '@theia/monaco': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/monaco': 1.71.1(patch_hash=91ebeecedda3fdb1e4a117befb4b08aa038e63916c0d4335c2bba7d716dcb548)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/monaco-editor-core': 1.108.201
       '@types/diff': 5.2.3
       diff: 5.2.2
@@ -7416,7 +7425,7 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@theia/search-in-workspace@1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react@18.3.1)(typescript@5.9.3)':
+  '@theia/search-in-workspace@1.71.1(patch_hash=35a541ec9d59d0eafbd19ac75580bfddb673bd5b2228369953605d8c0ff31aee)(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react@18.3.1)(typescript@5.9.3)':
     dependencies:
       '@theia/core': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/editor': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
@@ -7441,13 +7450,13 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@theia/task@1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)':
+  '@theia/task@1.71.1(patch_hash=1bb91eebef3d31371e80ba0dff8efd15ff482213cde166157d3608bbbcbb61f6)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)':
     dependencies:
       '@theia/core': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/editor': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/filesystem': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/markers': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
-      '@theia/monaco': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/monaco': 1.71.1(patch_hash=91ebeecedda3fdb1e4a117befb4b08aa038e63916c0d4335c2bba7d716dcb548)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/monaco-editor-core': 1.108.201
       '@theia/process': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/terminal': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
@@ -7473,7 +7482,7 @@ snapshots:
   '@theia/terminal-manager@1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)':
     dependencies:
       '@theia/core': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
-      '@theia/preferences': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/preferences': 1.71.1(patch_hash=b3b83a4af158d0ad550abb583339f5631ae325df33fc82aaf5a1b8e19f55b285)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/terminal': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
     transitivePeerDependencies:
       - '@theia/electron'
@@ -7586,7 +7595,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@theia/vsx-registry@1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)':
+  '@theia/vsx-registry@1.71.1(patch_hash=ed2a15b78bd877ac91373b166e4c6e430e61bd33c7aa972d9e77041d15f3cb4c)(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)':
     dependencies:
       '@theia/core': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/filesystem': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
@@ -7594,7 +7603,7 @@ snapshots:
       '@theia/ovsx-client': 1.71.1
       '@theia/plugin-ext': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
       '@theia/plugin-ext-vscode': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
-      '@theia/preferences': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      '@theia/preferences': 1.71.1(patch_hash=b3b83a4af158d0ad550abb583339f5631ae325df33fc82aaf5a1b8e19f55b285)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/workspace': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       limiter: 2.1.0
       luxon: 2.5.2

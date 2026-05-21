@@ -1,0 +1,35 @@
+diff --git a/lib/browser/monaco-frontend-application-contribution.js b/lib/browser/monaco-frontend-application-contribution.js
+index 710e5a13bf636a4d9dc54ded82ecfdcd6c74789f..63858144acef13985b1e5ee1d3d4b85f7ba6251e 100644
+--- a/lib/browser/monaco-frontend-application-contribution.js
++++ b/lib/browser/monaco-frontend-application-contribution.js
+@@ -66,7 +66,7 @@ let MonacoFrontendApplicationContribution = class MonacoFrontendApplicationContr
+         monaco.languages.register({
+             id: 'jsonc',
+             'aliases': [
+-                'JSON with Comments'
++                core_1.nls.localize('theia/monaco/language/jsonc', 'JSON with Comments')
+             ],
+             'extensions': workspaceExtensions.map(ext => `.${ext}`)
+         });
+diff --git a/src/browser/monaco-frontend-application-contribution.ts b/src/browser/monaco-frontend-application-contribution.ts
+index bcb5c5b1da1f0fb7740e873bc068294998e03fdf..1bff193787d125ef9712ea1f9f3817a70b6857f0 100644
+--- a/src/browser/monaco-frontend-application-contribution.ts
++++ b/src/browser/monaco-frontend-application-contribution.ts
+@@ -24,7 +24,7 @@ import { MonacoTextModelService } from './monaco-text-model-service';
+ import { MonacoThemingService } from './monaco-theming-service';
+ import { isHighContrast } from '@theia/core/lib/common/theme';
+ import { editorOptionsRegistry, IEditorOption } from '@theia/monaco-editor-core/esm/vs/editor/common/config/editorOptions';
+-import { MAX_SAFE_INTEGER, PreferenceSchemaService } from '@theia/core';
++import { MAX_SAFE_INTEGER, nls, PreferenceSchemaService } from '@theia/core';
+ import { editorGeneratedPreferenceProperties } from '@theia/editor/lib/common/editor-generated-preference-schema';
+ import { WorkspaceFileService } from '@theia/workspace/lib/common/workspace-file-service';
+ import { SecondaryWindowHandler } from '@theia/core/lib/browser/secondary-window-handler';
+@@ -97,7 +97,7 @@ export class MonacoFrontendApplicationContribution implements FrontendApplicatio
+         monaco.languages.register({
+             id: 'jsonc',
+             'aliases': [
+-                'JSON with Comments'
++                nls.localize('theia/monaco/language/jsonc', 'JSON with Comments')
+             ],
+             'extensions': workspaceExtensions.map(ext => `.${ext}`)
+         });

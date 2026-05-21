@@ -1,0 +1,36 @@
+diff --git a/lib/browser/vsx-extension-commands.js b/lib/browser/vsx-extension-commands.js
+index c1a328b7a7c2d62d30ff7bf75395ae86b1ecd636..ecba2e4fe250471717186c344b02999bf5ce5e35 100644
+--- a/lib/browser/vsx-extension-commands.js
++++ b/lib/browser/vsx-extension-commands.js
+@@ -61,11 +61,11 @@ var VSXExtensionsCommands;
+         label: 'Show Built-in Extensions',
+         category: EXTENSIONS_CATEGORY,
+     });
+-    VSXExtensionsCommands.SHOW_INSTALLED = common_1.Command.toLocalizedCommand({
++    VSXExtensionsCommands.SHOW_INSTALLED = common_1.Command.toDefaultLocalizedCommand({
+         id: 'vsxExtension.showInstalled',
+         label: 'Show Installed Extensions',
+         category: EXTENSIONS_CATEGORY,
+-    }, 'theia/vsx-registry/showInstalled');
++    });
+     VSXExtensionsCommands.SHOW_RECOMMENDATIONS = common_1.Command.toDefaultLocalizedCommand({
+         id: 'vsxExtension.showRecommendations',
+         label: 'Show Recommended Extensions',
+diff --git a/src/browser/vsx-extension-commands.ts b/src/browser/vsx-extension-commands.ts
+index d18a0a93170d835a19cfa04b87321cad126121ad..b6d24f515abe8c3f8c6b93e2666a602fcc1123b8 100644
+--- a/src/browser/vsx-extension-commands.ts
++++ b/src/browser/vsx-extension-commands.ts
+@@ -63,11 +63,11 @@ export namespace VSXExtensionsCommands {
+         label: 'Show Built-in Extensions',
+         category: EXTENSIONS_CATEGORY,
+     });
+-    export const SHOW_INSTALLED = Command.toLocalizedCommand({
++    export const SHOW_INSTALLED = Command.toDefaultLocalizedCommand({
+         id: 'vsxExtension.showInstalled',
+         label: 'Show Installed Extensions',
+         category: EXTENSIONS_CATEGORY,
+-    }, 'theia/vsx-registry/showInstalled');
++    });
+     export const SHOW_RECOMMENDATIONS = Command.toDefaultLocalizedCommand({
+         id: 'vsxExtension.showRecommendations',
+         label: 'Show Recommended Extensions',
