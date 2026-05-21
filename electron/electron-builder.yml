@@ -1,0 +1,51 @@
+# Electron Builder 打包配置。
+# 当前项目把 Theia 编译产物放在 electron/lib，插件放在 electron/plugins。
+appId: com.qiyansoft.chatpython
+productName: ChatPython
+copyright: Copyright © 2026 企研社科数智（杭州）科技有限公司
+
+# 使用 asar 压缩应用主体，跟 Theia IDE 官方桌面版保持一致。
+asar: true
+
+# 这些目录里包含 native .node、shell integration、预编译二进制等文件。
+# 它们需要留在 asar 外部，否则运行时可能无法被 Node/Electron 正常加载或执行。
+asarUnpack:
+  - "**/lib/backend/native/**"
+  - "**/lib/backend/shell-integrations/**"
+  - "**/lib/build/Release/**"
+  - "**/lib/prebuilds/**"
+
+# Theia build 阶段已经完成 native rebuild 和后端 bundle。
+# 打包阶段不再重复 rebuild，避免 electron-builder 扫 pnpm 依赖树时出错或变慢。
+nodeGypRebuild: false
+npmRebuild: false
+
+# 打包资源目录和产物输出目录。
+directories:
+  buildResources: resources
+  output: dist
+
+# app.asar 内只放 Theia 编译后的主体文件、辅助脚本和 package.json。
+# node_modules 不放进去，因为后端已经被 webpack 打进 lib 里了。
+# scripts 里目前只有打包/下载辅助脚本，不作为 Electron main 入口。
+files:
+  - lib/**/*
+  - scripts/**/*
+  - package.json
+  - "!**/node_modules/**"
+
+# 插件必须作为外部资源复制到 Resources/app/plugins。
+# 不要放进 app.asar，否则 Theia 插件部署器无法按普通目录扫描加载。
+extraResources:
+  - from: plugins
+    to: app/plugins
+
+# macOS app 图标和产物类型。
+mac:
+  target:
+    - dmg
+
+# Windows 安装包图标和产物类型。
+win:
+  target:
+    - nsis

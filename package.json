@@ -9,11 +9,15 @@
   "scripts": {
     "postinstall": "theia check:theia-version",
     "prepare": "pnpm --parallel --filter \"theia-extension-*\" prepare",
-    "plugins": "pnpm --filter theia-electron plugins",
+    "plugins": "pnpm --filter theia-electron plugins:download",
     "watch": "pnpm --parallel --filter \"theia-extension-*\" --filter theia-electron watch",
     "start": "pnpm --filter theia-electron start",
     "dev": "concurrently -k -n watch,start \"pnpm watch\" \"pnpm start\"",
-    "build": "pnpm --filter theia-electron bundle"
+    "bundle": "pnpm --filter theia-electron bundle",
+    "build": "pnpm --filter theia-electron build",
+    "build:mac": "pnpm --filter theia-electron build:mac",
+    "build:win": "pnpm --filter theia-electron build:win",
+    "build:preview": "pnpm --filter theia-electron build:preview"
   },
   "devDependencies": {}
 }

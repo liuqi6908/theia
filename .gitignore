@@ -1,6 +1,20 @@
+# 依赖目录由包管理器安装生成，不提交到仓库。
 node_modules
 .browser_modules
+
+# Theia 各包编译后的输出目录。
 lib
+
+# 本地运行或构建产生的日志文件。
 *.log
+
+# Electron 构建会生成 lib、plugins、dist 等大目录，默认不提交。
 electron/*
+
+# 只保留打包入口配置、辅助脚本和默认图标资源。
 !electron/package.json
+!electron/electron-builder.yml
+!electron/scripts/
+!electron/scripts/**
+!electron/resources/
+!electron/resources/**

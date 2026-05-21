@@ -122,6 +122,9 @@ importers:
       '@theia/workspace':
         specifier: 1.71.1
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
+      theia-extension-plugin-loader:
+        specifier: workspace:^
+        version: link:../extensions/plugin-loader
       theia-extension-workbench-layout:
         specifier: workspace:^
         version: link:../extensions/workbench-layout
@@ -141,6 +144,22 @@ importers:
       electron-builder:
         specifier: ^26.8.1
         version: 26.8.1(electron-builder-squirrel-windows@26.8.1)
+
+  extensions/plugin-loader:
+    dependencies:
+      '@theia/core':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
+      '@theia/plugin-ext':
+        specifier: 1.71.1
+        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
+    devDependencies:
+      rimraf:
+        specifier: ^5.0.0
+        version: 5.0.10
+      typescript:
+        specifier: 5.9.3
+        version: 5.9.3
 
   extensions/workbench-layout:
     dependencies:
@@ -2878,11 +2897,6 @@ packages:
     resolution: {integrity: sha512-o0Je4NvQObAuZPHLFoRSkdG2lTgtcynqymzg2Vupdx6PorhaT5MCbIyXG6d4D94kk8ZG57QeosgdiqfJWhEhlQ==}
     engines: {node: '>=10.19.0'}
 
-  graceful-fs@1.1.14:
-    resolution: {integrity: sha512-JUrvoFoQbLZpOZilKTXZX2e1EV0DTnuG5vsRFNFv4mPf/mnYbwNAFw/5x0rxeyaJslIdObGSgTTsMnM/acRaVw==}
-    engines: {node: '>=0.4.0'}
-    deprecated: please upgrade to graceful-fs 4 for compatibility with current and future versions of Node.js
-
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
@@ -4252,10 +4266,6 @@ packages:
   reusify@1.1.0:
     resolution: {integrity: sha512-g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
-
-  rimraf@2.0.0:
-    resolution: {integrity: sha512-ZBMvl3zW9cEVtEwA3Tqy7ALi0vL6+L8tr1asd3/b5qAZpaFdzgsB8U77itPuzF21f2QS2Ke3ChFo3ecdiMTnTg==}
-    deprecated: Rimraf versions prior to v4 are no longer supported
 
   rimraf@2.6.2:
     resolution: {integrity: sha512-lreewLK/BlghmxtfH36YYVg1i8IAce4TI7oao75I1g245+6BctqTVQiBP3YUJ9C6DQOXJmkYR9X9fCLtCOJc5w==}
@@ -9210,7 +9220,7 @@ snapshots:
       graceful-fs: 4.2.11
       inherits: 2.0.4
       mkdirp: 0.5.6
-      rimraf: 2.0.0
+      rimraf: 2.6.2
 
   function-bind@1.1.2: {}
 
@@ -9360,9 +9370,6 @@ snapshots:
       lowercase-keys: 2.0.0
       p-cancelable: 2.1.1
       responselike: 2.0.1
-
-  graceful-fs@1.1.14:
-    optional: true
 
   graceful-fs@4.2.11: {}
 
@@ -10726,10 +10733,6 @@ snapshots:
   retry@0.12.0: {}
 
   reusify@1.1.0: {}
-
-  rimraf@2.0.0:
-    optionalDependencies:
-      graceful-fs: 1.1.14
 
   rimraf@2.6.2:
     dependencies:

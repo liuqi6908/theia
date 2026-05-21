@@ -1,0 +1,31 @@
+{
+  "name": "theia-extension-plugin-loader",
+  "keywords": [
+    "theia-extension",
+    "插件加载器"
+  ],
+  "version": "0.0.0",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "dependencies": {
+    "@theia/core": "1.71.1",
+    "@theia/plugin-ext": "1.71.1"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.0",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "prepare": "pnpm clean && pnpm build",
+    "clean": "rimraf lib",
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "theiaExtensions": [
+    {
+      "backend": "lib/node/plugin-loader-backend-module"
+    }
+  ]
+}
