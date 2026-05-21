@@ -133,9 +133,12 @@ importers:
       '@theia/workspace':
         specifier: 1.71.1
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
-      theia-extension-plugin-loader:
+      theia-extension-plugin-register:
         specifier: workspace:^
-        version: link:../extensions/plugin-loader
+        version: link:../extensions/plugin-register
+      theia-extension-splash-screen:
+        specifier: workspace:^
+        version: link:../extensions/splash-screen
       theia-extension-workbench-layout:
         specifier: workspace:^
         version: link:../extensions/workbench-layout
@@ -156,7 +159,7 @@ importers:
         specifier: ^26.8.1
         version: 26.8.1(electron-builder-squirrel-windows@26.8.1)
 
-  extensions/plugin-loader:
+  extensions/plugin-register:
     dependencies:
       '@theia/core':
         specifier: 1.71.1
@@ -164,6 +167,22 @@ importers:
       '@theia/plugin-ext':
         specifier: 1.71.1
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
+    devDependencies:
+      rimraf:
+        specifier: ^5.0.0
+        version: 5.0.10
+      typescript:
+        specifier: 5.9.3
+        version: 5.9.3
+
+  extensions/splash-screen:
+    dependencies:
+      '@theia/application-package':
+        specifier: 1.71.1
+        version: 1.71.1
+      '@theia/core':
+        specifier: 1.71.1
+        version: 1.71.1(patch_hash=fb5e02a93d13e8af5d64ef1e078e1f2553655a785fe0c89f24b33985af6ccc3e)(@theia/electron@1.71.1(electron@39.8.7))
     devDependencies:
       rimraf:
         specifier: ^5.0.0
@@ -9490,7 +9509,7 @@ snapshots:
 
   https-proxy-agent@5.0.1:
     dependencies:
-      agent-base: 6.0.0
+      agent-base: 6.0.2
       debug: 4.4.3(supports-color@8.1.1)
     transitivePeerDependencies:
       - supports-color

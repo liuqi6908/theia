@@ -1,8 +1,9 @@
 {
-  "name": "theia-extension-plugin-loader",
+  "name": "theia-extension-splash-screen",
   "keywords": [
     "theia-extension",
-    "插件加载器"
+    "splash-screen",
+    "启动页"
   ],
   "version": "0.0.0",
   "files": [
@@ -10,8 +11,8 @@
     "src"
   ],
   "dependencies": {
-    "@theia/core": "1.71.1",
-    "@theia/plugin-ext": "1.71.1"
+    "@theia/application-package": "1.71.1",
+    "@theia/core": "1.71.1"
   },
   "devDependencies": {
     "rimraf": "^5.0.0",
@@ -25,7 +26,7 @@
   },
   "theiaExtensions": [
     {
-      "backend": "lib/node/plugin-loader-backend-module"
+      "electronMain": "lib/electron-main/splash-screen-electron-main-module"
     }
   ]
 }

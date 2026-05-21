@@ -16,13 +16,18 @@
 - 不写复述语法的注释。
 - 修改已有行为时，同步更新附近过期注释。
 
+## 扩展文档
+
+- 新增或修改 `extensions/*` 下的 Theia 扩展时，同步新增或更新该扩展目录下的 `README.md`。
+- README 说明扩展用途、主要行为、接入方式和关键实现入口，避免记录会快速过期的构建产物细节。
+
 ## 构建与验证
 
 - 使用 `pnpm` 执行项目脚本。
 - 修改扩展后，优先运行对应 filter 的 build，例如：
 
 ```bash
-rtk pnpm --filter theia-extension-plugin-loader build
+rtk pnpm --filter theia-extension-plugin-register build
 ```
 
 - 修改 Electron 打包配置后，优先做静态检查；需要验证产物时再运行对应打包脚本。
@@ -40,7 +45,7 @@ rtk pnpm --filter theia-extension-plugin-loader build
 - 示例：
 
 ```text
-feat(plugin-loader): 加载打包内置插件
+feat(plugin-register): 注册打包内置插件
 build(electron): 精简默认打包资源
 docs(gitignore): 补充忽略规则注释
 ```

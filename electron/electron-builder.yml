@@ -30,6 +30,7 @@ directories:
 # scripts 里目前只有打包/下载辅助脚本，不作为 Electron main 入口。
 files:
   - lib/**/*
+  - resources/splash.html
   - scripts/**/*
   - package.json
   - "!**/node_modules/**"

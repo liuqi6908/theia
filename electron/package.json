@@ -41,8 +41,9 @@
     "@theia/variable-resolver": "1.71.1",
     "@theia/vsx-registry": "1.71.1",
     "@theia/workspace": "1.71.1",
+    "theia-extension-splash-screen": "workspace:^",
     "theia-extension-zh-cn-language-pack": "workspace:^",
-    "theia-extension-plugin-loader": "workspace:^",
+    "theia-extension-plugin-register": "workspace:^",
     "theia-extension-workbench-layout": "workspace:^"
   },
   "devDependencies": {
@@ -68,7 +69,10 @@
     "vscode-builtin-extensions": "https://github.com/eclipse-theia/vscode-builtin-extensions/releases/download/1.108.2/vscode-builtin-extensions-1.108.2.tar.gz",
     "ms-ceintl.vscode-language-pack-zh-hans": "https://open-vsx.org/api/MS-CEINTL/vscode-language-pack-zh-hans/1.110.0/file/MS-CEINTL.vscode-language-pack-zh-hans-1.110.0.vsix"
   },
-  "theiaPluginsExcludeIds": [],
+  "theiaPluginsExcludeIds": [
+    "vscode.github",
+    "vscode.github-authentication"
+  ],
   "theia": {
     "target": "electron",
     "frontend": {
