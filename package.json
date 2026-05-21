@@ -12,6 +12,7 @@
     "plugins": "pnpm --filter theia-electron plugins",
     "watch": "pnpm --parallel --filter \"theia-extension-*\" --filter theia-electron watch",
     "start": "pnpm --filter theia-electron start",
+    "dev": "concurrently -k -n watch,start \"pnpm watch\" \"pnpm start\"",
     "build": "pnpm --filter theia-electron bundle"
   },
   "devDependencies": {}
