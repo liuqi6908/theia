@@ -2,7 +2,7 @@
   "private": true,
   "name": "theia-electron",
   "productName": "ChatPython",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/backend/electron-main.js",
   "dependencies": {
     "@theia/ai-core": "1.71.1",
