@@ -20,9 +20,9 @@ export class AppUpdaterFrontendClient {
 
   /** 主动检查更新。 */
   public async checkUpdate(notify = true): Promise<void> {
-    if (this.state.checking) {
+    if (this.state.checking) 
       return;
-    }
+
     this.state.checking = true;
     this.state.error = undefined;
     try {
@@ -53,9 +53,9 @@ export class AppUpdaterFrontendClient {
   /** 下载已发现的更新。 */
   public async downloadUpdate(): Promise<void> {
     const { updateAvailable } = this.state;
-    if (!updateAvailable || this.state.downloading) {
+    if (!updateAvailable || this.state.downloading) 
       return;
-    }
+    
     this.state.downloading = true;
     this.state.error = undefined;
     try {

@@ -1,61 +1,62 @@
 /* Theia 扩展样式是全局的，统一限制在 app-updater 根节点下。 */
-.app-updater-root .app-updater-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: color-mix(in srgb, var(--theia-editor-background) 68%, transparent);
-}
+.app-updater-root {
+  & .app-updater-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(in srgb, var(--theia-editor-background) 68%, transparent);
+  }
 
-.app-updater-root .app-updater-dialog {
-  width: min(420px, calc(100vw - 48px));
-  padding: 24px;
-  color: var(--theia-editorHoverWidget-foreground);
-  background: var(--theia-editorHoverWidget-background);
-  border: var(--theia-border-width) solid var(--theia-editorHoverWidget-border);
-  border-radius: 8px;
-  box-shadow: 0 24px 72px var(--theia-widget-shadow);
-}
+  & .app-updater-dialog {
+    width: min(420px, calc(100vw - 48px));
+    padding: 24px;
+    color: var(--theia-editorHoverWidget-foreground);
+    background: var(--theia-editorHoverWidget-background);
+    border: var(--theia-border-width) solid var(--theia-editorHoverWidget-border);
+    border-radius: 8px;
+    box-shadow: 0 24px 72px var(--theia-widget-shadow);
 
-.app-updater-root .app-updater-dialog h2 {
-  margin: 0 0 8px;
-  font-size: 20px;
-}
+    & h2 {
+      margin: 0 0 8px;
+    }
 
-.app-updater-root .app-updater-dialog p {
-  margin: 0 0 20px;
-  color: var(--theia-descriptionForeground);
-}
+    & p {
+      margin: 0 0 20px;
+      color: var(--theia-descriptionForeground);
+    }
+  }
 
-.app-updater-root .app-updater-version {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
+  & .app-updater-version {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
 
-.app-updater-root .app-updater-progress {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 12px;
-  align-items: center;
-}
+  & .app-updater-progress {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
 
-.app-updater-root .app-updater-progress progress {
-  width: 100%;
-}
+    & progress {
+      width: 100%;
+    }
+  }
 
-.app-updater-root .app-updater-error {
-  display: grid;
-  gap: 12px;
-  margin-top: 16px;
-  color: var(--theia-errorForeground);
-}
+  & .app-updater-error {
+    display: grid;
+    gap: 12px;
+    margin-top: 16px;
+    color: var(--theia-errorForeground);
 
-.app-updater-root .app-updater-error button {
-  justify-self: start;
-  color: var(--theia-button-foreground);
-  background: var(--theia-button-background);
-  border: var(--theia-border-width) solid var(--theia-contrastBorder);
+    & button {
+      justify-self: start;
+      color: var(--theia-button-foreground);
+      background: var(--theia-button-background);
+      border: var(--theia-border-width) solid var(--theia-contrastBorder);
+    }
+  }
 }

@@ -12,7 +12,6 @@
     "plugins": "pnpm --filter theia-electron plugins:download",
     "watch": "pnpm --parallel --filter \"theia-extension-*\" --filter theia-electron watch",
     "start": "pnpm --filter theia-electron start",
-    "dev": "concurrently -k -n watch,start \"pnpm watch\" \"pnpm start\"",
     "bundle": "pnpm --filter theia-electron bundle",
     "build": "pnpm --filter theia-electron build",
     "build:mac": "pnpm --filter theia-electron build:mac",
