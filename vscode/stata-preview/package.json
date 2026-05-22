@@ -1,0 +1,54 @@
+{
+  "name": "vscode-extension-stata-preview",
+  "publisher": "QiyanData",
+  "displayName": "Stata Preview",
+  "description": "以表格形式预览 Stata 的 .dta 文件内容",
+  "version": "0.0.1",
+  "icon": "media/icon.png",
+  "keywords": [
+    "stata",
+    "dta",
+    "data-preview",
+    "statistics"
+  ],
+  "engines": {
+    "vscode": "^1.120.0"
+  },
+  "categories": [
+    "Visualization",
+    "Data Science"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "customEditors": [
+      {
+        "viewType": "stataPreview.dta",
+        "displayName": "Stata Data Preview",
+        "selector": [
+          {
+            "filenamePattern": "*.dta"
+          }
+        ],
+        "priority": "default"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm package",
+    "build": "vsce package",
+    "compile": "pnpm check-types && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "pnpm check-types && node esbuild.js --production",
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.120.0",
+    "@types/node": "22.x",
+    "esbuild": "^0.27.3",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.9.3"
+  }
+}

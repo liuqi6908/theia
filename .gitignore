@@ -1,6 +1,9 @@
+dist
 node_modules
 .browser_modules
 lib
 *.log
 electron/*
 !electron/package.json
+vscode/**/*.vsix
+.DS_Store

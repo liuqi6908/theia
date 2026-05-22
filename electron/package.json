@@ -35,7 +35,8 @@
   },
   "theiaPluginsDir": "plugins",
   "theiaPlugins": {
-    "ms-ceintl.vscode-language-pack-zh-hans": "https://open-vsx.org/api/MS-CEINTL/vscode-language-pack-zh-hans/1.110.0/file/MS-CEINTL.vscode-language-pack-zh-hans-1.110.0.vsix"
+    "ms-ceintl.vscode-language-pack-zh-hans": "https://open-vsx.org/api/MS-CEINTL/vscode-language-pack-zh-hans/1.110.0/file/MS-CEINTL.vscode-language-pack-zh-hans-1.110.0.vsix",
+    "vscode-extension-stata-preview": "https://chatpython-src.qiyansoft.com/extension/stata-preview/0.0.1/vscode-extension-stata-preview-0.0.1.vsix"
   },
   "theia": {
     "target": "electron",

@@ -1,6 +1,7 @@
 packages:
   - 'electron'
   - 'extensions/*'
+  - 'vscode/*'
 
 shamefullyHoist: true
 
@@ -15,6 +16,7 @@ allowBuilds:
   command-join: true
   drivelist: true
   electron: true
+  esbuild: true
   keytar: true
   msgpackr-extract: true
   native-keymap: true
