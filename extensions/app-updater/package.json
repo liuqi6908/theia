@@ -1,0 +1,35 @@
+{
+  "name": "theia-extension-app-updater",
+  "keywords": [
+    "theia-extension",
+    "app-updater",
+    "updater",
+    "自动更新"
+  ],
+  "version": "0.0.0",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "dependencies": {
+    "@theia/core": "1.71.1",
+    "electron-log": "^5.4.3",
+    "electron-updater": "^6.3.9"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.0",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "prepare": "pnpm clean && pnpm build",
+    "clean": "rimraf lib",
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "theiaExtensions": [
+    {
+      "frontendElectron": "lib/electron-browser/app-updater-frontend-module",
+      "electronMain": "lib/electron-main/app-updater-electron-main-module"
+    }
+  ]
+}

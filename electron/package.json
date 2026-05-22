@@ -41,10 +41,11 @@
     "@theia/variable-resolver": "1.71.1",
     "@theia/vsx-registry": "1.71.1",
     "@theia/workspace": "1.71.1",
-    "theia-extension-splash-screen": "workspace:^",
-    "theia-extension-zh-cn-language-pack": "workspace:^",
     "theia-extension-plugin-register": "workspace:^",
-    "theia-extension-workbench-layout": "workspace:^"
+    "theia-extension-splash-screen": "workspace:^",
+    "theia-extension-app-updater": "workspace:^",
+    "theia-extension-workbench-layout": "workspace:^",
+    "theia-extension-zh-cn-language-pack": "workspace:^"
   },
   "devDependencies": {
     "@theia/cli": "1.71.1",
@@ -58,6 +59,7 @@
     "build:preview": "pnpm bundle && electron-builder --dir -c.mac.identity=null --publish never",
     "build:mac": "pnpm bundle && electron-builder --mac -c.mac.identity=null --publish never",
     "build:win": "pnpm bundle && electron-builder --win --publish never",
+    "deploy": "pnpm bundle && electron-builder --publish always",
     "plugins:download": "theia download:plugins --rate-limit=15 --parallel=false && pnpm plugins:prune && pnpm plugins:permissions",
     "plugins:permissions": "node scripts/make-files-writeable.js --directory plugins",
     "rebuild": "theia rebuild:electron --cacheRoot ..",

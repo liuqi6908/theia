@@ -42,10 +42,16 @@ extraResources:
   - from: plugins
     to: app/plugins
 
+# 自动更新元数据由 electron-builder 根据 publish 配置生成。
+publish:
+  provider: generic
+  url: https://electron-app-1304276643.cos.ap-guangzhou.myqcloud.com/dist
+
 # macOS app 图标和产物类型。
 mac:
   target:
     - dmg
+    - zip
 
 # Windows 安装包图标和产物类型。
 win:

@@ -1,0 +1,11 @@
+# electron-updater 的开发态配置文件。
+#
+# 当 app-updater-rpc-service.ts 设置 autoUpdater.forceDevUpdateConfig = true 时，
+# 未打包的 Electron 应用也会执行真实更新检查。electron-updater 会先在
+# 应用根目录读取 dev-app-update.yml，再根据这里的 provider/url 请求更新元数据。
+#
+# 这个地址必须和 electron/electron-builder.yml 里的 publish 配置保持一致，
+# 否则开发环境和正式安装包会检查不同的更新源，容易出现本地可复现但线上
+# 不一致的问题。删除该文件会导致开发态检查直接报 ENOENT。
+provider: generic
+url: https://electron-app-1304276643.cos.ap-guangzhou.myqcloud.com/dist

@@ -3,7 +3,8 @@
     "chatpython",
     "prebuilds",
     "qiyansoft",
-    "theia"
+    "theia",
+    "valtio"
   ],
   "js/ts.tsdk.path": "node_modules/typescript/lib"
 }

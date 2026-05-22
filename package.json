@@ -19,5 +19,8 @@
     "build:win": "pnpm --filter theia-electron build:win",
     "build:preview": "pnpm --filter theia-electron build:preview"
   },
+  "dependencies": {
+    "valtio": "2.3.2"
+  },
   "devDependencies": {}
 }

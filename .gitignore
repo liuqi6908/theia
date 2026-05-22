@@ -17,6 +17,7 @@ electron/*
 # 只保留打包入口配置、辅助脚本和默认图标资源。
 !electron/package.json
 !electron/electron-builder.yml
+!electron/dev-app-update.yml
 !electron/scripts/
 !electron/scripts/**
 !electron/resources/
