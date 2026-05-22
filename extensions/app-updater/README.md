@@ -12,6 +12,9 @@
 
 ## 关键入口
 
+- `src/index.ts`：公共 `common` API 出口，供其他扩展按包名导入。
+- `src/electron-browser/index.ts`：Electron 前端 API 出口，供其他前端扩展注入更新服务。
+- `src/electron-main/index.ts`：Electron 主进程 API 出口，供需要扩展更新服务实现的模块使用。
 - `src/common/app-updater-rpc.ts`：定义前后端共用的 RPC class token。
 - `src/electron-browser/app-updater-frontend-module.ts`：绑定前端服务、Widget 和后端 RPC proxy。
 - `src/electron-browser/app-updater-frontend-client.ts`：提供前端命令和 UI 可调用的更新动作。
@@ -24,6 +27,25 @@
 本扩展使用抽象 class 作为 Inversify token，不额外定义 `Symbol` 或 `Ixxx`。
 
 具体实现类使用 `Impl` 后缀，并通过 `toService` 绑定到抽象 class token。
+
+其他扩展如果只需要触发检查更新，优先注入前端动作服务：
+
+```ts
+import { inject, injectable } from '@theia/core/shared/inversify';
+import { AppUpdaterFrontendClient } from 'theia-extension-app-updater/lib/electron-browser';
+
+@injectable()
+export class OtherContribution {
+  @inject(AppUpdaterFrontendClient)
+  protected readonly updater!: AppUpdaterFrontendClient;
+}
+```
+
+如果只需要 RPC token 或类型，可以从包根导入：
+
+```ts
+import { AppUpdaterRpcService } from 'theia-extension-app-updater';
+```
 
 后端类似 NestJS 的 `useClass`：
 

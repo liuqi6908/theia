@@ -16,7 +16,6 @@ export default new ContainerModule(bind => {
     new RpcConnectionHandler<AppUpdaterRpcClient>(
       APP_UPDATER_RPC_PATH,
       client => {
-        console.info(`[app-updater] electron-main rpc connected: ${APP_UPDATER_RPC_PATH}`);
         const service = context.container.get<AppUpdaterRpcService>(AppUpdaterRpcService);
         service.setClient(client);
         // 前端窗口关闭后移除 client，避免后端继续推送更新事件。

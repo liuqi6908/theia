@@ -14,7 +14,6 @@ export class AppUpdaterRpcClientImpl extends AppUpdaterRpcClient {
 
   /** 后端发现新版本。 */
   public onUpdateAvailable(info: UpdateInfo): void {
-    console.info('[app-updater] rpc event update-available', info);
     this._repo.state.updateAvailable = info;
     this._repo.state.checking = false;
     this._repo.state.error = undefined;
@@ -22,27 +21,23 @@ export class AppUpdaterRpcClientImpl extends AppUpdaterRpcClient {
 
   /** 后端确认没有新版本。 */
   public onUpdateNotAvailable(): void {
-    console.info('[app-updater] rpc event update-not-available');
     this._repo.state.updateAvailable = undefined;
     this._repo.state.checking = false;
   }
 
   /** 后端推送下载进度。 */
   public onDownloadProgress(progress: ProgressInfo): void {
-    console.info('[app-updater] rpc event download-progress', progress);
     this._repo.state.progress = progress;
   }
 
   /** 后端通知下载完成。 */
   public onUpdateDownloaded(): void {
-    console.info('[app-updater] rpc event update-downloaded');
     this._repo.state.downloaded = true;
     this._repo.state.downloading = false;
   }
 
   /** 后端通知检查或下载失败。 */
   public onUpdateError(message: string): void {
-    console.error('[app-updater] rpc event error', message);
     this._repo.state.error = message;
     this._repo.state.checking = false;
     this._repo.state.downloading = false;

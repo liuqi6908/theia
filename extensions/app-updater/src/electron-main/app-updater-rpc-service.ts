@@ -12,8 +12,6 @@ export class AppUpdaterRpcServiceImpl extends AppUpdaterRpcService {
 
   protected _autoUpdater: AppUpdater | undefined;
 
-  protected _logger: { info(message?: unknown): void; error(message?: unknown): void } | undefined;
-
   public constructor() {
     super();
   }
@@ -22,12 +20,7 @@ export class AppUpdaterRpcServiceImpl extends AppUpdaterRpcService {
   protected get autoUpdater(): AppUpdater {
     if (!this._autoUpdater) {
       const { autoUpdater } = require('electron-updater') as typeof import('electron-updater');
-      const logger = require('electron-log');
 
-      this._logger = logger;
-      this.logInfo('init autoUpdater');
-
-      autoUpdater.logger = logger;
       autoUpdater.autoDownload = false;
       // 开发态也读取 electron/dev-app-update.yml，便于本地验证真实更新链路。
       autoUpdater.forceDevUpdateConfig = true;
@@ -37,28 +30,22 @@ export class AppUpdaterRpcServiceImpl extends AppUpdaterRpcService {
         provider: 'generic',
         url: APP_UPDATER_URL
       });
-      this.logInfo(`feed url: ${APP_UPDATER_URL}`);
 
       autoUpdater.on('update-available', (info: UpdateInfo) => {
-        this.logInfo(`event update-available: ${info.version}, clients=${this.clients.length}`);
         this.broadcast(client => client.onUpdateAvailable(info));
       });
       autoUpdater.on('update-not-available', () => {
-        this.logInfo(`event update-not-available, clients=${this.clients.length}`);
         this.broadcast(client => client.onUpdateNotAvailable());
       });
       autoUpdater.on('download-progress', (progress: ProgressInfo) => {
-        this.logInfo(`event download-progress: ${progress.percent?.toFixed(2) ?? 0}%`);
         this.broadcast(client => client.onDownloadProgress(progress));
       });
       autoUpdater.on('update-downloaded', () => {
-        this.logInfo(`event update-downloaded, clients=${this.clients.length}`);
         this.broadcast(client => client.onUpdateDownloaded());
         this.autoUpdater.quitAndInstall();
       });
       autoUpdater.on('error', (error: unknown) => {
         const message = toErrorMessage(error);
-        this.logError(`event error: ${message}`);
         this.broadcast(client => client.onUpdateError(message));
       });
 
@@ -69,21 +56,16 @@ export class AppUpdaterRpcServiceImpl extends AppUpdaterRpcService {
 
   /** 检查更新。 */
   public async checkForUpdates(): Promise<UpdateCheckResult | null> {
-    this.logInfo('checkForUpdates called');
-    const result = await this.autoUpdater.checkForUpdates();
-    this.logInfo(`checkForUpdates result: available=${Boolean(result?.isUpdateAvailable)}, version=${result?.updateInfo?.version ?? 'none'}`);
-    return result;
+    return this.autoUpdater.checkForUpdates();
   }
 
   /** 下载更新。 */
   public async downloadUpdate(): Promise<void> {
-    this.logInfo('downloadUpdate called');
     await this.autoUpdater.downloadUpdate();
   }
 
   /** 安装更新。 */
   public quitAndInstall(): void {
-    this.logInfo('quitAndInstall called');
     this.autoUpdater.quitAndInstall();
   }
 
@@ -91,7 +73,6 @@ export class AppUpdaterRpcServiceImpl extends AppUpdaterRpcService {
   public setClient(client: AppUpdaterRpcClient | undefined): void {
     if (client && !this.clients.includes(client)) {
       this.clients.push(client);
-      this.logInfo(`client connected: clients=${this.clients.length}`);
     }
   }
 
@@ -100,7 +81,6 @@ export class AppUpdaterRpcServiceImpl extends AppUpdaterRpcService {
     const index = this.clients.indexOf(client);
     if (index !== -1) {
       this.clients.splice(index, 1);
-      this.logInfo(`client disconnected: clients=${this.clients.length}`);
     }
   }
 
@@ -113,13 +93,5 @@ export class AppUpdaterRpcServiceImpl extends AppUpdaterRpcService {
     for (const client of [...this.clients]) {
       callback(client);
     }
-  }
-
-  protected logInfo(message: string): void {
-    this._logger?.info(`[app-updater] ${message}`);
-  }
-
-  protected logError(message: string): void {
-    this._logger?.error(`[app-updater] ${message}`);
   }
 }

@@ -26,9 +26,7 @@ export class AppUpdaterFrontendClient {
     this.state.checking = true;
     this.state.error = undefined;
     try {
-      console.info('[app-updater] frontend checkUpdate called');
       const result = await this._rpcSrv.checkForUpdates();
-      console.info('[app-updater] frontend checkUpdate result', result);
       this.state.updateCheckResult = result ?? undefined;
       if (result?.isUpdateAvailable) {
         this.state.updateAvailable = result.updateInfo;
@@ -61,12 +59,10 @@ export class AppUpdaterFrontendClient {
     this.state.downloading = true;
     this.state.error = undefined;
     try {
-      console.info('[app-updater] frontend downloadUpdate called');
       await this._rpcSrv.downloadUpdate();
     }
     catch (error) {
       this.state.error = toErrorMessage(error);
-      console.error('[app-updater] frontend downloadUpdate error', this.state.error);
       this.state.downloading = false;
     }
   }

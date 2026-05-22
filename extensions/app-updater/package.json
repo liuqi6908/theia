@@ -11,9 +11,10 @@
     "lib",
     "src"
   ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "dependencies": {
     "@theia/core": "1.71.1",
-    "electron-log": "^5.4.3",
     "electron-updater": "^6.3.9"
   },
   "devDependencies": {
