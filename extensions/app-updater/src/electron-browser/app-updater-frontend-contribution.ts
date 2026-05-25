@@ -1,7 +1,7 @@
 import { FrontendApplication, FrontendApplicationContribution, Widget } from '@theia/core/lib/browser';
 import { CommonMenus } from '@theia/core/lib/browser/common-menus';
 import { Command, CommandContribution, CommandRegistry, MenuContribution, MenuModelRegistry } from '@theia/core/lib/common';
-import { injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from '@theia/core/shared/inversify';
 import { AppUpdaterFrontendClient } from './app-updater-frontend-client';
 import { AppUpdaterFrontendWidget } from './app-updater-frontend-widget';
 
@@ -13,10 +13,10 @@ export const APP_UPDATER_CHECK_FOR_UPDATES_COMMAND: Command = {
 @injectable()
 export class AppUpdaterFrontendContribution implements FrontendApplicationContribution, CommandContribution, MenuContribution {
 
-  public constructor(
-    private readonly _widget: AppUpdaterFrontendWidget,
-    private readonly _client: AppUpdaterFrontendClient
-  ) { }
+  @inject(AppUpdaterFrontendWidget)
+  protected readonly _widget!: AppUpdaterFrontendWidget;
+  @inject(AppUpdaterFrontendClient)
+  protected readonly _client!: AppUpdaterFrontendClient;
 
   public onStart(_app: FrontendApplication): void {
     this.attachWidget();

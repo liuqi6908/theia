@@ -1,5 +1,5 @@
 import { MessageService } from '@theia/core/lib/common';
-import { injectable } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
 import { AppUpdaterRpcService } from '../common/app-updater-rpc';
 import { toErrorMessage } from '../common/app-updater-utils';
 import { AppUpdaterRepoClient, AppUpdaterStore } from './app-updater-repo-client';
@@ -7,14 +7,18 @@ import { AppUpdaterRepoClient, AppUpdaterStore } from './app-updater-repo-client
 @injectable()
 export class AppUpdaterFrontendClient {
 
-  /** 前端更新状态，Dialog 直接订阅。 */
-  public readonly state: AppUpdaterStore;
+  @inject(AppUpdaterRepoClient)
+  protected readonly _repo!: AppUpdaterRepoClient;
+  @inject(AppUpdaterRpcService)
+  protected readonly _rpcSrv!: AppUpdaterRpcService;
+  @inject(MessageService)
+  protected readonly _msgSrv!: MessageService;
 
-  public constructor(
-    private readonly _repo: AppUpdaterRepoClient,
-    private readonly _rpcSrv: AppUpdaterRpcService,
-    private readonly _msgSrv: MessageService
-  ) {
+  /** 前端更新状态，Dialog 直接订阅。 */
+  public state!: AppUpdaterStore;
+
+  @postConstruct()
+  protected init(): void {
     this.state = this._repo.state;
   }
 

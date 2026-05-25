@@ -8,7 +8,7 @@ import { AppUpdaterRpcServiceImpl } from './app-updater-rpc-service';
 export default new ContainerModule(bind => {
   // 后端服务只需要一个实例，里面会保存当前连接的前端 clients。
   bind(AppUpdaterRpcServiceImpl).toSelf().inSingletonScope();
-  // class token 对应真实 Electron 后端服务，类似 NestJS 的 useClass。
+  // Symbol token 对应真实 Electron 后端服务，类似 NestJS 的 useClass。
   bind(AppUpdaterRpcService).toService(AppUpdaterRpcServiceImpl);
 
   // 注册 Electron main RPC：前端用同一个 path 创建 proxy 后，会进入这里。

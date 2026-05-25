@@ -18,10 +18,10 @@ export default new ContainerModule(bind => {
   bind(AppUpdaterFrontendClient).toSelf().inSingletonScope();
   // RPC 回调实现，供后端推送更新事件。
   bind(AppUpdaterRpcClientImpl).toSelf().inSingletonScope();
-  // class token 对应前端 RPC 回调，类似 NestJS 的 useClass。
+  // Symbol token 对应前端 RPC 回调，类似 NestJS 的 useClass。
   bind(AppUpdaterRpcClient).toService(AppUpdaterRpcClientImpl);
 
-  // class token 对应后端 RPC proxy，类似 NestJS 的 useFactory。
+  // Symbol token 对应后端 RPC proxy，类似 NestJS 的 useFactory。
   bind(AppUpdaterRpcService).toDynamicValue(context => {
     const client = context.container.get<AppUpdaterRpcClient>(AppUpdaterRpcClient);
     // 创建 Electron main 服务代理，同时把前端回调传给主进程。

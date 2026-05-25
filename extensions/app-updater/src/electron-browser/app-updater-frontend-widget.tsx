@@ -9,7 +9,6 @@ export class AppUpdaterFrontendWidget extends ReactWidget {
 
   public static readonly ID = 'app-updater-widget';
 
-  /** 前端更新入口，供 Dialog 调用并读取状态。 */
   @inject(AppUpdaterFrontendClient)
   protected readonly _client!: AppUpdaterFrontendClient;
 

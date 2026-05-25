@@ -5,16 +5,12 @@ import { AppUpdaterRpcClient, AppUpdaterRpcService } from '../common/app-updater
 import { toErrorMessage } from '../common/app-updater-utils';
 
 @injectable()
-export class AppUpdaterRpcServiceImpl extends AppUpdaterRpcService {
+export class AppUpdaterRpcServiceImpl implements AppUpdaterRpcService {
 
   /** 当前连接到后端的前端回调。 */
   protected readonly clients: AppUpdaterRpcClient[] = [];
 
   protected _autoUpdater: AppUpdater | undefined;
-
-  public constructor() {
-    super();
-  }
 
   /** electron-updater 只能在 Electron main 里初始化。 */
   protected get autoUpdater(): AppUpdater {

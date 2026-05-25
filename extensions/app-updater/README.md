@@ -6,7 +6,7 @@
 
 扩展按运行环境拆分：
 
-- `common`：RPC class token、常量和工具函数。
+- `common`：RPC Symbol token、接口、常量和工具函数。
 - `electron-browser`：Electron 前端专用 UI、命令和贡献。
 - `electron-main`：Electron 主进程专用服务与系统能力接入。
 
@@ -15,7 +15,7 @@
 - `src/index.ts`：公共 `common` API 出口，供其他扩展按包名导入。
 - `src/electron-browser/index.ts`：Electron 前端 API 出口，供其他前端扩展注入更新服务。
 - `src/electron-main/index.ts`：Electron 主进程 API 出口，供需要扩展更新服务实现的模块使用。
-- `src/common/app-updater-rpc.ts`：定义前后端共用的 RPC class token。
+- `src/common/app-updater-rpc.ts`：定义前后端共用的 RPC Symbol token 与接口。
 - `src/electron-browser/app-updater-frontend-module.ts`：绑定前端服务、Widget 和后端 RPC proxy。
 - `src/electron-browser/app-updater-frontend-client.ts`：提供前端命令和 UI 可调用的更新动作。
 - `src/electron-browser/app-updater-repo-client.ts`：保存前端更新状态。
@@ -24,9 +24,11 @@
 
 ## DI 风格
 
-本扩展使用抽象 class 作为 Inversify token，不额外定义 `Symbol` 或 `Ixxx`。
+本扩展使用同名 `Symbol` 和 `interface` 作为 Inversify token 与类型契约。
 
-具体实现类使用 `Impl` 后缀，并通过 `toService` 绑定到抽象 class token。
+具体实现类使用 `Impl` 后缀，并通过 `toService` 绑定到 Symbol token。
+
+接口在运行期会被擦除，成员属性需要通过 `@inject(AppUpdaterRpcService)` 显式声明 token。
 
 其他扩展如果只需要触发检查更新，优先注入前端动作服务：
 
@@ -68,7 +70,7 @@ bind(AppUpdaterRpcService).toDynamicValue(context =>
 
 ## 与 ChatApp updater hook 的对应关系
 
-Theia 版本会把 ChatApp 中分散的 IPC channel 收敛成一组 JSON-RPC `Server/Client` 协议 class。可以按下面方式理解：
+Theia 版本会把 ChatApp 中分散的 IPC channel 收敛成一组 JSON-RPC `Server/Client` 协议接口。可以按下面方式理解：
 
 | ChatApp `use-updater.ts` | Theia `app-updater-rpc.ts` | 作用 |
 | --- | --- | --- |

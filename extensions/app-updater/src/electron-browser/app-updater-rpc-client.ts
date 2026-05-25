@@ -1,16 +1,13 @@
 import type { ProgressInfo, UpdateInfo } from 'electron-updater';
-import { injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from '@theia/core/shared/inversify';
 import { AppUpdaterRpcClient } from '../common/app-updater-rpc';
 import { AppUpdaterRepoClient } from './app-updater-repo-client';
 
 @injectable()
-export class AppUpdaterRpcClientImpl extends AppUpdaterRpcClient {
+export class AppUpdaterRpcClientImpl implements AppUpdaterRpcClient {
 
-  public constructor(
-    private readonly _repo: AppUpdaterRepoClient
-  ) {
-    super();
-  }
+  @inject(AppUpdaterRepoClient)
+  protected readonly _repo!: AppUpdaterRepoClient;
 
   /** 后端发现新版本。 */
   public onUpdateAvailable(info: UpdateInfo): void {
