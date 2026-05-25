@@ -1,12 +1,5 @@
 {
   "theia": {
-    "ai": {
-      "core": {
-        "promptTemplate": {
-          "language": "AI 提示词模板"
-        }
-      }
-    },
     "monaco": {
       "language": {
         "jsonc": "带注释的 JSON"
@@ -14,15 +7,8 @@
     }
   },
   "vscode": {
-    "agentSessionsActions": {
-      "pin": "固定",
-      "unpin": "取消固定"
-    },
     "browserViewActions": {
       "browser.goForwardAction": "前进"
-    },
-    "chatDebugOverviewView": {
-      "chatDebug.metric.errors": "错误"
     },
     "onboardingVariationA": {
       "onboarding.ext.installed": "已安装",
@@ -33,9 +19,6 @@
     },
     "scmInput": {
       "scmInputMoreActions": "更多操作..."
-    },
-    "settingsLayout": {
-      "chatAppearance": "外观"
     },
     "terminalNotificationHandler": {
       "terminalNotificationSource": "终端"

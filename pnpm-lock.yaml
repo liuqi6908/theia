@@ -9,11 +9,11 @@ overrides:
   zod: 3.25.76
 
 patchedDependencies:
-  '@theia/ai-core@1.71.1': 820758e67693ba221c8d10e0abe61df0a12580d4cf6b24e7307bffe6211a0b24
   '@theia/core@1.71.1': fb5e02a93d13e8af5d64ef1e078e1f2553655a785fe0c89f24b33985af6ccc3e
   '@theia/monaco@1.71.1': 91ebeecedda3fdb1e4a117befb4b08aa038e63916c0d4335c2bba7d716dcb548
   '@theia/navigator@1.71.1': 94fbf81536613f78940a7c3e812dd9abc7b2fbc56e4b88ff47c9ccf30f196136
   '@theia/notebook@1.71.1': 51d0450ee070bd5d119c9443c9e0639b838cb7842147d19e42cfee4eee8d8807
+  '@theia/plugin-ext@1.71.1': fcb1e418dd3357d3101501fdc99f42ad2e6af8c9645da7d259b4bf65dbf0dfe6
   '@theia/preferences@1.71.1': b3b83a4af158d0ad550abb583339f5631ae325df33fc82aaf5a1b8e19f55b285
   '@theia/search-in-workspace@1.71.1': 35a541ec9d59d0eafbd19ac75580bfddb673bd5b2228369953605d8c0ff31aee
   '@theia/task@1.71.1': 1bb91eebef3d31371e80ba0dff8efd15ff482213cde166157d3608bbbcbb61f6
@@ -29,12 +29,6 @@ importers:
 
   electron:
     dependencies:
-      '@theia/ai-core':
-        specifier: 1.71.1
-        version: 1.71.1(patch_hash=820758e67693ba221c8d10e0abe61df0a12580d4cf6b24e7307bffe6211a0b24)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
-      '@theia/ai-mcp':
-        specifier: 1.71.1
-        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)(zod@3.25.76)
       '@theia/bulk-edit':
         specifier: 1.71.1
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
@@ -91,7 +85,7 @@ importers:
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/plugin-ext':
         specifier: 1.71.1
-        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
+        version: 1.71.1(patch_hash=fcb1e418dd3357d3101501fdc99f42ad2e6af8c9645da7d259b4bf65dbf0dfe6)(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
       '@theia/plugin-ext-vscode':
         specifier: 1.71.1
         version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
@@ -189,7 +183,7 @@ importers:
         version: 1.71.1(patch_hash=fb5e02a93d13e8af5d64ef1e078e1f2553655a785fe0c89f24b33985af6ccc3e)(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/plugin-ext':
         specifier: 1.71.1
-        version: 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
+        version: 1.71.1(patch_hash=fcb1e418dd3357d3101501fdc99f42ad2e6af8c9645da7d259b4bf65dbf0dfe6)(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
     devDependencies:
       rimraf:
         specifier: ^5.0.0
@@ -227,8 +221,8 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0
       typescript:
-        specifier: ~5.4.5
-        version: 5.4.5
+        specifier: 5.9.3
+        version: 5.9.3
 
   extensions/zh-cn-language-pack:
     dependencies:
@@ -935,16 +929,6 @@ packages:
     resolution: {integrity: sha512-9QOtNffcOF/c1seMCDnjckb3R9WHcG34tky+FHpNKKCW0wc/scYLwMtO+ptyGUfMW0/b/n4qRiALlaFHc9Oj7Q==}
     engines: {node: '>= 10.0.0'}
 
-  '@modelcontextprotocol/sdk@1.29.0':
-    resolution: {integrity: sha512-zo37mZA9hJWpULgkRpowewez1y6ML5GsXJPY8FI0tBBCd77HEvza4jDqRKOXgHNn867PVGCyTdzqpz0izu5ZjQ==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      '@cfworker/json-schema': ^4.1.1
-      zod: 3.25.76
-    peerDependenciesMeta:
-      '@cfworker/json-schema':
-        optional: true
-
   '@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.3':
     resolution: {integrity: sha512-QZHtlVgbAdy2zAqNA9Gu1UpIuI8Xvsd1v8ic6B2pZmeFnFcMWiPLfWXh7TVw4eGEZ/C9TH281KwhVoeQUKbyjw==}
     cpu: [arm64]
@@ -1106,12 +1090,6 @@ packages:
   '@szmarczak/http-timer@4.0.6':
     resolution: {integrity: sha512-4BAffykYOgO+5nzBWYwE3W90sBgLJoUPRWWcL8wlyiM8IB8ipJz3UMJ9KXQd1RKQXpKp8Tutn80HZtWsu2u76w==}
     engines: {node: '>=10'}
-
-  '@theia/ai-core@1.71.1':
-    resolution: {integrity: sha512-9HOcBqR9in74HISFVUpMpMaCAi0rO/tumg6tqlAFosfGJe5Pesnchqc7fJClmemPndgz7DVtpp6aorAbUtYTbw==}
-
-  '@theia/ai-mcp@1.71.1':
-    resolution: {integrity: sha512-GfPClQz/v4rxt+Z1JhYOBCP458MeUOUWPxgh+NHwP59V51eQLhvgFtNOl9PXK88cHqyRbnoOss/OQvzzYJRPXQ==}
 
   '@theia/application-manager@1.71.1':
     resolution: {integrity: sha512-sFw2GyfOjNJE78tu2Z41sMc4Tvdbcl2TTLH7iOj5GzqBsmDP9m23PqiUYLMV6KZAKH/z4jM8/6A3lewi+I6Uug==}
@@ -2911,10 +2889,6 @@ packages:
     resolution: {integrity: sha512-DfXN8DfhJ7NH3Oe7cFmu3NCu1wKbkReJ8TorzSAFbSKrlNaQSKfIzqYqVY8zlbs2NLBbWpRiU52GX2PbaBVNkg==}
     deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
-
-  glob@7.2.0:
-    resolution: {integrity: sha512-lmLf6gtyrPq8tTjSmrO94wBeQbFR3HbLHbuyD69wuyQkImp2hWqMGB47OX65FBkPffO641IP9jWa1z4ivqG26Q==}
-    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
@@ -5037,6 +5011,7 @@ packages:
 
   uuid@9.0.1:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
   v8-compile-cache@2.4.0:
@@ -6294,28 +6269,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@modelcontextprotocol/sdk@1.29.0(zod@3.25.76)':
-    dependencies:
-      '@hono/node-server': 1.19.14(hono@4.12.19)
-      ajv: 8.20.0
-      ajv-formats: 3.0.1(ajv@8.20.0)
-      content-type: 1.0.5
-      cors: 2.8.6
-      cross-spawn: 7.0.6
-      eventsource: 3.0.7
-      eventsource-parser: 3.0.8
-      express: 5.2.1
-      express-rate-limit: 8.5.2(express@5.2.1)
-      hono: 4.12.19
-      jose: 6.2.3
-      json-schema-typed: 8.0.2
-      pkce-challenge: 5.0.0
-      raw-body: 3.0.2
-      zod: 3.25.76
-      zod-to-json-schema: 3.25.2(zod@3.25.76)
-    transitivePeerDependencies:
-      - supports-color
-
   '@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.3':
     optional: true
 
@@ -6440,51 +6393,6 @@ snapshots:
   '@szmarczak/http-timer@4.0.6':
     dependencies:
       defer-to-connect: 2.0.1
-
-  '@theia/ai-core@1.71.1(patch_hash=820758e67693ba221c8d10e0abe61df0a12580d4cf6b24e7307bffe6211a0b24)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)':
-    dependencies:
-      '@theia/core': 1.71.1(patch_hash=fb5e02a93d13e8af5d64ef1e078e1f2553655a785fe0c89f24b33985af6ccc3e)(@theia/electron@1.71.1(electron@39.8.7))
-      '@theia/editor': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
-      '@theia/filesystem': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
-      '@theia/monaco': 1.71.1(patch_hash=91ebeecedda3fdb1e4a117befb4b08aa038e63916c0d4335c2bba7d716dcb548)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
-      '@theia/monaco-editor-core': 1.108.201
-      '@theia/output': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
-      '@theia/variable-resolver': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
-      '@theia/workspace': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
-      '@types/js-yaml': 4.0.9
-      fast-deep-equal: 3.1.3
-      js-yaml: 4.1.1
-      tslib: 2.8.1
-      undici: 7.25.0
-    transitivePeerDependencies:
-      - '@theia/electron'
-      - bare-abort-controller
-      - bare-buffer
-      - bufferutil
-      - debug
-      - react-native-b4a
-      - supports-color
-      - typescript
-      - utf-8-validate
-
-  '@theia/ai-mcp@1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)(zod@3.25.76)':
-    dependencies:
-      '@modelcontextprotocol/sdk': 1.29.0(zod@3.25.76)
-      '@theia/ai-core': 1.71.1(patch_hash=820758e67693ba221c8d10e0abe61df0a12580d4cf6b24e7307bffe6211a0b24)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
-      '@theia/core': 1.71.1(patch_hash=fb5e02a93d13e8af5d64ef1e078e1f2553655a785fe0c89f24b33985af6ccc3e)(@theia/electron@1.71.1(electron@39.8.7))
-      '@theia/workspace': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
-    transitivePeerDependencies:
-      - '@cfworker/json-schema'
-      - '@theia/electron'
-      - bare-abort-controller
-      - bare-buffer
-      - bufferutil
-      - debug
-      - react-native-b4a
-      - supports-color
-      - typescript
-      - utf-8-validate
-      - zod
 
   '@theia/application-manager@1.71.1(@theia/electron@1.71.1(electron@39.8.7))(postcss@8.5.14)':
     dependencies:
@@ -7081,7 +6989,7 @@ snapshots:
       '@theia/navigator': 1.71.1(patch_hash=94fbf81536613f78940a7c3e812dd9abc7b2fbc56e4b88ff47c9ccf30f196136)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/outline-view': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/plugin': 1.71.1
-      '@theia/plugin-ext': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
+      '@theia/plugin-ext': 1.71.1(patch_hash=fcb1e418dd3357d3101501fdc99f42ad2e6af8c9645da7d259b4bf65dbf0dfe6)(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
       '@theia/scm': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react@18.3.1)(typescript@5.9.3)
       '@theia/terminal': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/typehierarchy': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
@@ -7106,9 +7014,8 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@theia/plugin-ext@1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)':
+  '@theia/plugin-ext@1.71.1(patch_hash=fcb1e418dd3357d3101501fdc99f42ad2e6af8c9645da7d259b4bf65dbf0dfe6)(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)':
     dependencies:
-      '@theia/ai-mcp': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)(zod@3.25.76)
       '@theia/bulk-edit': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/callhierarchy': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))
       '@theia/console': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
@@ -7416,7 +7323,7 @@ snapshots:
       '@theia/filesystem': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/navigator': 1.71.1(patch_hash=94fbf81536613f78940a7c3e812dd9abc7b2fbc56e4b88ff47c9ccf30f196136)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/ovsx-client': 1.71.1
-      '@theia/plugin-ext': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
+      '@theia/plugin-ext': 1.71.1(patch_hash=fcb1e418dd3357d3101501fdc99f42ad2e6af8c9645da7d259b4bf65dbf0dfe6)(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
       '@theia/plugin-ext-vscode': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)(zod@3.25.76)
       '@theia/preferences': 1.71.1(patch_hash=b3b83a4af158d0ad550abb583339f5631ae325df33fc82aaf5a1b8e19f55b285)(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
       '@theia/workspace': 1.71.1(@theia/electron@1.71.1(electron@39.8.7))(typescript@5.9.3)
@@ -9381,15 +9288,6 @@ snapshots:
       package-json-from-dist: 1.0.1
       path-scurry: 1.11.1
 
-  glob@7.2.0:
-    dependencies:
-      fs.realpath: 1.0.0
-      inflight: 1.0.6
-      inherits: 2.0.4
-      minimatch: 3.1.5
-      once: 1.4.0
-      path-is-absolute: 1.0.1
-
   glob@7.2.3:
     dependencies:
       fs.realpath: 1.0.0
@@ -9444,7 +9342,7 @@ snapshots:
     dependencies:
       array-union: 1.0.2
       dir-glob: 2.2.2
-      glob: 7.2.0
+      glob: 7.2.3
       ignore: 3.3.10
       pify: 3.0.0
       slash: 1.0.0
@@ -10836,7 +10734,7 @@ snapshots:
 
   rimraf@2.6.2:
     dependencies:
-      glob: 7.2.0
+      glob: 7.2.3
 
   rimraf@5.0.0:
     dependencies:

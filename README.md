@@ -9,7 +9,7 @@
 ## 运行程序
 
 ```bash
-pnpm compile
+pnpm bundle
 pnpm start
 ```
 
@@ -27,7 +27,7 @@ pnpm build
 
 - `pnpm dev`: 监听源码变化，重新编译并自动重启 Electron 客户端。
 - `pnpm start`: 直接启动当前已编译产物，不监听变化。
-- `pnpm compile`: 编译 Theia/Electron 可运行产物，不生成安装包。
+- `pnpm bundle`: 编译 Theia/Electron 可运行产物，不生成安装包。
 - `pnpm build`: 使用 `electron-builder` 生成平台分发产物；在 macOS 上生成 `.dmg`/`.zip`，Windows/Linux 产物需要在对应平台或配套构建环境中生成。
 
 ## 安装第三方扩展
@@ -43,8 +43,6 @@ pnpm build
 基础扩展：
 
 ```text
-@theia/ai-core: AI 能力基础服务和通用模型/代理抽象。
-@theia/ai-mcp: MCP 协议集成，连接 MCP 工具和服务。
 @theia/bulk-edit: 批量编辑支持，用于重命名、代码操作等跨文件修改。
 @theia/callhierarchy: 调用层级视图，查看函数/方法调用关系。
 @theia/console: 控制台视图和控制台输出能力。
@@ -84,27 +82,6 @@ pnpm build
 相比 `theia-ide` 完全体，当前项目尚未引入：
 
 ```text
-@theia/ai-anthropic: Anthropic/Claude 模型 provider 集成。
-@theia/ai-chat: AI Chat 后端和聊天能力。
-@theia/ai-chat-ui: AI Chat 前端 UI。
-@theia/ai-claude-code: Claude Code 集成。
-@theia/ai-code-completion: AI 代码补全能力。
-@theia/ai-codex: OpenAI Codex 集成。
-@theia/ai-copilot: GitHub Copilot 集成。
-@theia/ai-core-ui: AI 基础 UI 组件和配置界面。
-@theia/ai-editor: 编辑器内 AI 操作能力。
-@theia/ai-google: Google/Gemini 模型 provider 集成。
-@theia/ai-history: AI 对话和通信历史。
-@theia/ai-huggingface: Hugging Face provider 集成。
-@theia/ai-ide: AI IDE Agent 能力。
-@theia/ai-llamafile: Llamafile 本地模型集成。
-@theia/ai-mcp-server: 内置 MCP Server 能力。
-@theia/ai-mcp-ui: MCP 工具/服务相关 UI。
-@theia/ai-ollama: Ollama 本地模型集成。
-@theia/ai-openai: OpenAI/OpenAI-compatible provider 集成。
-@theia/ai-scanoss: SCANOSS AI 集成。
-@theia/ai-terminal: 终端中的 AI 辅助能力。
-@theia/ai-vercel-ai: Vercel AI SDK provider 集成。
 @theia/collaboration: 多人实时协作能力。
 @theia/dev-container: Dev Container 开发容器能力。
 @theia/getting-started: 欢迎页/Getting Started 页面。
