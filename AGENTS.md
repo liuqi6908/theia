@@ -1,5 +1,3 @@
-@/Users/green/.codex/RTK.md
-
 # Theia 项目协作规范
 
 ## 基本原则
