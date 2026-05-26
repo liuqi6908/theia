@@ -1,0 +1,16 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "运行 Stata Preview 扩展",
+			"type": "extensionHost",
+			"request": "launch",
+			"args": [
+				"--extensionDevelopmentPath=${workspaceFolder}/vscode/stata-preview"
+			],
+			"outFiles": [
+				"${workspaceFolder}/vscode/stata-preview/dist/**/*.js"
+			]
+		}
+	]
+}

@@ -1,6 +1,7 @@
 packages:
   - 'electron'
   - 'extensions/*'
+  - 'vscode/*'
 
 shamefullyHoist: true
 
@@ -16,6 +17,7 @@ allowBuilds:
   drivelist: true
   electron: true
   electron-winstaller: true
+  esbuild: true
   keytar: true
   msgpackr-extract: true
   native-keymap: true
@@ -28,6 +30,7 @@ patchedDependencies:
   '@theia/navigator@1.71.1': patches/@theia__navigator@1.71.1.patch
   '@theia/notebook@1.71.1': patches/@theia__notebook@1.71.1.patch
   '@theia/plugin-ext@1.71.1': patches/@theia__plugin-ext@1.71.1.patch
+  '@theia/plugin-ext-vscode@1.71.1': patches/@theia__plugin-ext-vscode@1.71.1.patch
   '@theia/preferences@1.71.1': patches/@theia__preferences@1.71.1.patch
   '@theia/search-in-workspace@1.71.1': patches/@theia__search-in-workspace@1.71.1.patch
   '@theia/task@1.71.1': patches/@theia__task@1.71.1.patch

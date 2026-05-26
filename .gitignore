@@ -2,6 +2,7 @@
 .DS_Store
 
 # 依赖目录由包管理器安装生成，不提交到仓库。
+dist
 node_modules
 .browser_modules
 
@@ -26,3 +27,5 @@ electron/*
 !electron/scripts/**
 !electron/resources/
 !electron/resources/**
+vscode/**/*.vsix
+.DS_Store

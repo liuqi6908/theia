@@ -4,7 +4,9 @@
     "prebuilds",
     "qiyansoft",
     "theia",
-    "valtio"
+    "valtio",
+    "stata",
+    "theia"
   ],
   "js/ts.tsdk.path": "node_modules/typescript/lib"
 }
